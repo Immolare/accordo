@@ -26,6 +26,7 @@ const I18N = {
     tooLow: "Trop bas — tendez la corde ↑", tooHigh: "Trop haut — détendez la corde ↓", inTune: "Juste ✓",
     micOff: "micro désactivé", soundHint: "Touchez une corde en mode Son 🔊",
     micBanner: "Micro non autorisé — utilisez le mode Son et accordez à l'oreille.",
+    micRetry: "Réessayer",
     done: "Accordage terminé ✓", soundToast: "Touchez une corde pour l'écouter",
     cents: "cents", language: "Langue",
     legal: "Mentions légales", close: "Fermer", stringN: "Corde",
@@ -43,6 +44,7 @@ const I18N = {
     tooLow: "Too low — tighten the string ↑", tooHigh: "Too high — loosen the string ↓", inTune: "In tune ✓",
     micOff: "mic disabled", soundHint: "Tap a string in Sound mode 🔊",
     micBanner: "Microphone not allowed — use Sound mode and tune by ear.",
+    micRetry: "Try again",
     done: "Tuning complete ✓", soundToast: "Tap a string to hear it",
     cents: "cents", language: "Language",
     legal: "Legal notice", close: "Close", stringN: "String",
@@ -60,6 +62,7 @@ const I18N = {
     tooLow: "Muy grave — tensa la cuerda ↑", tooHigh: "Muy agudo — afloja la cuerda ↓", inTune: "Afinada ✓",
     micOff: "micrófono desactivado", soundHint: "Toca una cuerda en modo Sonido 🔊",
     micBanner: "Micrófono no autorizado — usa el modo Sonido y afina de oído.",
+    micRetry: "Reintentar",
     done: "¡Afinación completada! ✓", soundToast: "Toca una cuerda para escucharla",
     cents: "cents", language: "Idioma",
     legal: "Aviso legal", close: "Cerrar", stringN: "Cuerda",
@@ -77,6 +80,7 @@ const I18N = {
     tooLow: "Troppo bassa — tendi la corda ↑", tooHigh: "Troppo alta — allenta la corda ↓", inTune: "Accordata ✓",
     micOff: "microfono disattivato", soundHint: "Tocca una corda in modalità Suono 🔊",
     micBanner: "Microfono non autorizzato — usa la modalità Suono e accorda a orecchio.",
+    micRetry: "Riprova",
     done: "Accordatura completata ✓", soundToast: "Tocca una corda per ascoltarla",
     cents: "cents", language: "Lingua",
     legal: "Note legali", close: "Chiudi", stringN: "Corda",
@@ -94,6 +98,7 @@ const I18N = {
     tooLow: "Zu tief — Saite spannen ↑", tooHigh: "Zu hoch — Saite lockern ↓", inTune: "Gestimmt ✓",
     micOff: "Mikrofon deaktiviert", soundHint: "Tippe eine Saite im Ton-Modus an 🔊",
     micBanner: "Mikrofon nicht erlaubt — nutze den Ton-Modus und stimme nach Gehör.",
+    micRetry: "Erneut versuchen",
     done: "Stimmen abgeschlossen ✓", soundToast: "Tippe eine Saite an, um sie zu hören",
     cents: "Cent", language: "Sprache",
     legal: "Impressum", close: "Schließen", stringN: "Saite",
@@ -111,6 +116,7 @@ const I18N = {
     tooLow: "Muito grave — aperte a corda ↑", tooHigh: "Muito agudo — solte a corda ↓", inTune: "Afinada ✓",
     micOff: "microfone desativado", soundHint: "Toque numa corda no modo Som 🔊",
     micBanner: "Microfone não autorizado — use o modo Som e afine de ouvido.",
+    micRetry: "Tentar novamente",
     done: "Afinação concluída ✓", soundToast: "Toque numa corda para ouvi-la",
     cents: "cents", language: "Idioma",
     legal: "Aviso legal", close: "Fechar", stringN: "Corda",
@@ -128,6 +134,7 @@ const I18N = {
     tooLow: "偏低 — 调紧琴弦 ↑", tooHigh: "偏高 — 调松琴弦 ↓", inTune: "已调准 ✓",
     micOff: "麦克风已禁用", soundHint: "在声音模式下点击琴弦 🔊",
     micBanner: "麦克风未授权 — 请使用声音模式，凭听觉调音。",
+    micRetry: "重试",
     done: "调音完成 ✓", soundToast: "点击琴弦即可试听",
     cents: "音分", language: "语言",
     legal: "法律声明", close: "关闭", stringN: "弦",
@@ -145,6 +152,7 @@ const I18N = {
     tooLow: "低すぎ — 弦を締めて ↑", tooHigh: "高すぎ — 弦を緩めて ↓", inTune: "ジャスト ✓",
     micOff: "マイク無効", soundHint: "サウンドモードで弦をタップ 🔊",
     micBanner: "マイクが許可されていません — サウンドモードで耳でチューニングしてください。",
+    micRetry: "再試行",
     done: "チューニング完了 ✓", soundToast: "弦をタップすると音が鳴ります",
     cents: "セント", language: "言語",
     legal: "法的表示", close: "閉じる", stringN: "弦",
@@ -162,6 +170,7 @@ const I18N = {
     tooLow: "너무 낮음 — 줄을 조이세요 ↑", tooHigh: "너무 높음 — 줄을 푸세요 ↓", inTune: "정확함 ✓",
     micOff: "마이크 꺼짐", soundHint: "소리 모드에서 줄을 탭하세요 🔊",
     micBanner: "마이크가 허용되지 않음 — 소리 모드로 귀로 튜닝하세요.",
+    micRetry: "다시 시도",
     done: "튜닝 완료 ✓", soundToast: "줄을 탭하면 소리가 납니다",
     cents: "센트", language: "언어",
     legal: "법적 고지", close: "닫기", stringN: "현",
@@ -332,7 +341,8 @@ function applyLang() {
   el.flatLabel.textContent = t("flat");
   el.autoLabel.textContent = t("auto");
   el.soundLabel.textContent = t("sound");
-  el.micBanner.textContent = t("micBanner");
+  el.micBannerText.textContent = t("micBanner");
+  el.micRetry.textContent = t("micRetry");
   el.legalLink.textContent = t("legal");
   el.langBtn.setAttribute("aria-label", t("language"));
   el.sheetClose.setAttribute("aria-label", t("close"));
@@ -586,7 +596,7 @@ const el = {
   flatBtn: $("flatBtn"), autoBtn: $("autoBtn"), soundBtn: $("soundBtn"),
   flatLabel: $("flatLabel"), autoLabel: $("autoLabel"), soundLabel: $("soundLabel"),
   calibDown: $("calibDown"), calibUp: $("calibUp"), calibValue: $("calibValue"),
-  micBanner: $("micBanner"),
+  micBanner: $("micBanner"), micBannerText: $("micBannerText"), micRetry: $("micRetry"),
   legalLink: $("legalLink"),
   toast: $("toast"),
   srAnnounce: $("srAnnounce"),
@@ -921,6 +931,8 @@ function renderGauge() {
     setText(el.freqLabel, micOk ? "\u00A0" : t("micOff"));
     setText(el.statusText, micOk ? t("play") : t("soundHint"));
   }
+  // « micro désactivé » : masque la colonne cents pour centrer le message
+  el.freqLabel.parentElement.classList.toggle("mic-off", !micOk);
 }
 
 // Ne met à jour le DOM que si le texte change (évite que les lecteurs
@@ -991,6 +1003,16 @@ function bindEvents() {
     el.startOverlay.hidden = true;
     el.app.hidden = false;
     requestAnimationFrame(tick);
+  });
+
+  // Relance la demande d'autorisation micro (utile en PWA : pas de barre
+  // d'adresse pour changer la permission). Le clic fournit le geste
+  // utilisateur requis pour re-demander quand c'est encore possible.
+  el.micRetry.addEventListener("click", async () => {
+    el.micRetry.disabled = true;
+    await initAudio();
+    el.micRetry.disabled = false;
+    if (micOk) el.micBanner.hidden = true;
   });
 
   el.langBtn.addEventListener("click", () => {
