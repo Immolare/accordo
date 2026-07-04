@@ -21,7 +21,7 @@ const I18N = {
     tagline: "Accordeur guitare & basse, simple et précis.", start: "Commencer",
     startHint: "L'accès au micro sera demandé pour écouter votre instrument.", init: "Initialisation…",
     guitar: "Guitare", bass: "Basse", strings: "cordes", tunings: "Accordages",
-    search: "Rechercher : Drop C, Open G, DADGAD…", noResults: "Aucun accordage trouvé",
+    search: "Rechercher : Drop C, Open G, 7 cordes…", noResults: "Aucun accordage trouvé",
     flat: "Flat", auto: "Auto", sound: "Son", play: "Jouez une corde…",
     tooLow: "Trop bas — tendez la corde ↑", tooHigh: "Trop haut — détendez la corde ↓", inTune: "Juste ✓",
     micOff: "micro désactivé", soundHint: "Touchez une corde en mode Son 🔊",
@@ -38,7 +38,7 @@ const I18N = {
     tagline: "Guitar & bass tuner — simple and accurate.", start: "Start",
     startHint: "Microphone access will be requested to hear your instrument.", init: "Starting…",
     guitar: "Guitar", bass: "Bass", strings: "strings", tunings: "Tunings",
-    search: "Search: Drop C, Open G, DADGAD…", noResults: "No tuning found",
+    search: "Search: Drop C, Open G, 7 strings…", noResults: "No tuning found",
     flat: "Flat", auto: "Auto", sound: "Sound", play: "Play a string…",
     tooLow: "Too low — tighten the string ↑", tooHigh: "Too high — loosen the string ↓", inTune: "In tune ✓",
     micOff: "mic disabled", soundHint: "Tap a string in Sound mode 🔊",
@@ -55,7 +55,7 @@ const I18N = {
     tagline: "Afinador de guitarra y bajo — simple y preciso.", start: "Comenzar",
     startHint: "Se pedirá acceso al micrófono para escuchar tu instrumento.", init: "Iniciando…",
     guitar: "Guitarra", bass: "Bajo", strings: "cuerdas", tunings: "Afinaciones",
-    search: "Buscar: Drop C, Open G, DADGAD…", noResults: "No se encontró ninguna afinación",
+    search: "Buscar: Drop C, Open G, 7 cuerdas…", noResults: "No se encontró ninguna afinación",
     flat: "Bemol", auto: "Auto", sound: "Sonido", play: "Toca una cuerda…",
     tooLow: "Muy grave — tensa la cuerda ↑", tooHigh: "Muy agudo — afloja la cuerda ↓", inTune: "Afinada ✓",
     micOff: "micrófono desactivado", soundHint: "Toca una cuerda en modo Sonido 🔊",
@@ -72,7 +72,7 @@ const I18N = {
     tagline: "Accordatore per chitarra e basso — semplice e preciso.", start: "Inizia",
     startHint: "Verrà richiesto l'accesso al microfono per ascoltare il tuo strumento.", init: "Avvio…",
     guitar: "Chitarra", bass: "Basso", strings: "corde", tunings: "Accordature",
-    search: "Cerca: Drop C, Open G, DADGAD…", noResults: "Nessuna accordatura trovata",
+    search: "Cerca: Drop C, Open G, 7 corde…", noResults: "Nessuna accordatura trovata",
     flat: "Bemolle", auto: "Auto", sound: "Suono", play: "Suona una corda…",
     tooLow: "Troppo bassa — tendi la corda ↑", tooHigh: "Troppo alta — allenta la corda ↓", inTune: "Accordata ✓",
     micOff: "microfono disattivato", soundHint: "Tocca una corda in modalità Suono 🔊",
@@ -89,7 +89,7 @@ const I18N = {
     tagline: "Gitarren- & Bass-Stimmgerät — einfach und präzise.", start: "Starten",
     startHint: "Für das Hören deines Instruments wird Mikrofonzugriff angefragt.", init: "Starte…",
     guitar: "Gitarre", bass: "Bass", strings: "Saiten", tunings: "Stimmungen",
-    search: "Suchen: Drop C, Open G, DADGAD…", noResults: "Keine Stimmung gefunden",
+    search: "Suchen: Drop C, Open G, 7 Saiten…", noResults: "Keine Stimmung gefunden",
     flat: "Flat", auto: "Auto", sound: "Ton", play: "Spiele eine Saite…",
     tooLow: "Zu tief — Saite spannen ↑", tooHigh: "Zu hoch — Saite lockern ↓", inTune: "Gestimmt ✓",
     micOff: "Mikrofon deaktiviert", soundHint: "Tippe eine Saite im Ton-Modus an 🔊",
@@ -106,7 +106,7 @@ const I18N = {
     tagline: "Afinador de guitarra e baixo — simples e preciso.", start: "Começar",
     startHint: "O acesso ao microfone será solicitado para ouvir o seu instrumento.", init: "Iniciando…",
     guitar: "Guitarra", bass: "Baixo", strings: "cordas", tunings: "Afinações",
-    search: "Pesquisar: Drop C, Open G, DADGAD…", noResults: "Nenhuma afinação encontrada",
+    search: "Pesquisar: Drop C, Open G, 7 cordas…", noResults: "Nenhuma afinação encontrada",
     flat: "Bemol", auto: "Auto", sound: "Som", play: "Toque uma corda…",
     tooLow: "Muito grave — aperte a corda ↑", tooHigh: "Muito agudo — solte a corda ↓", inTune: "Afinada ✓",
     micOff: "microfone desativado", soundHint: "Toque numa corda no modo Som 🔊",
@@ -123,7 +123,7 @@ const I18N = {
     tagline: "简单精准的吉他与贝斯调音器。", start: "开始",
     startHint: "将请求麦克风权限以聆听您的乐器。", init: "正在启动…",
     guitar: "吉他", bass: "贝斯", strings: "弦", tunings: "调弦方式",
-    search: "搜索：Drop C、Open G、DADGAD…", noResults: "未找到调弦方式",
+    search: "搜索：Drop C、Open G、7弦…", noResults: "未找到调弦方式",
     flat: "降半音", auto: "自动", sound: "声音", play: "请拨动琴弦…",
     tooLow: "偏低 — 调紧琴弦 ↑", tooHigh: "偏高 — 调松琴弦 ↓", inTune: "已调准 ✓",
     micOff: "麦克风已禁用", soundHint: "在声音模式下点击琴弦 🔊",
@@ -140,7 +140,7 @@ const I18N = {
     tagline: "シンプルで正確なギター＆ベースチューナー。", start: "スタート",
     startHint: "楽器の音を聴くため、マイクへのアクセスを求めます。", init: "起動中…",
     guitar: "ギター", bass: "ベース", strings: "弦", tunings: "チューニング",
-    search: "検索：Drop C、Open G、DADGAD…", noResults: "チューニングが見つかりません",
+    search: "検索：Drop C、Open G、7弦…", noResults: "チューニングが見つかりません",
     flat: "半音下げ", auto: "自動", sound: "サウンド", play: "弦を弾いてください…",
     tooLow: "低すぎ — 弦を締めて ↑", tooHigh: "高すぎ — 弦を緩めて ↓", inTune: "ジャスト ✓",
     micOff: "マイク無効", soundHint: "サウンドモードで弦をタップ 🔊",
@@ -157,7 +157,7 @@ const I18N = {
     tagline: "간단하고 정확한 기타·베이스 튜너.", start: "시작",
     startHint: "악기 소리를 듣기 위해 마이크 접근 권한을 요청합니다.", init: "시작 중…",
     guitar: "기타", bass: "베이스", strings: "현", tunings: "튜닝",
-    search: "검색: Drop C, Open G, DADGAD…", noResults: "튜닝을 찾을 수 없습니다",
+    search: "검색: Drop C, Open G, 7현…", noResults: "튜닝을 찾을 수 없습니다",
     flat: "플랫", auto: "자동", sound: "소리", play: "줄을 튕겨 주세요…",
     tooLow: "너무 낮음 — 줄을 조이세요 ↑", tooHigh: "너무 높음 — 줄을 푸세요 ↓", inTune: "정확함 ✓",
     micOff: "마이크 꺼짐", soundHint: "소리 모드에서 줄을 탭하세요 🔊",
@@ -440,7 +440,7 @@ function yinDetect(buf, sr) {
   for (let i = 0; i < W; i++) rms += buf[i] * buf[i];
   rms = Math.sqrt(rms / W);
   noiseFloor = Math.min(noiseFloor * 1.008, Math.max(rms, 1e-4));
-  if (rms < Math.max(0.0025, noiseFloor * 2.5)) return -1;
+  if (rms < Math.max(0.0015, noiseFloor * 2.5)) return -1;
 
   if (!yinD || yinD.length < tauMax + 1) {
     yinD = new Float32Array(tauMax + 1);
@@ -473,6 +473,16 @@ function yinDetect(buf, sr) {
       tau = t;
       break;
     }
+  }
+  // Repli signaux faibles (guitare électrique non branchée, micro lointain…) :
+  // à défaut de minimum sous le seuil, on prend le minimum global si sa
+  // qualité reste acceptable. Le lissage médian aval filtre les ratés.
+  if (tau === -1) {
+    let best = -1, bestVal = 0.35;
+    for (let t = tauMin; t <= tauMax; t++) {
+      if (yinCMND[t] < bestVal) { bestVal = yinCMND[t]; best = t; }
+    }
+    tau = best;
   }
   if (tau === -1) return -1;
 
@@ -674,12 +684,13 @@ function renderPresetSheet(filter = "") {
   const presets = PRESETS[state.instrument];
   let count = 0;
 
-  const addItem = (p, idx) => {
+  const addItem = (p, idx, showGroup) => {
     const off = state.flat ? -1 : 0;
     const item = document.createElement("button");
     item.className = "sheet-item" + (idx === state.presetIndex ? " selected" : "");
     if (idx === state.presetIndex) item.setAttribute("aria-current", "true");
-    item.innerHTML = `<span class="p-main"><span class="p-name">${presetName(p)}</span><br>
+    item.innerHTML = `<span class="p-main"><span class="p-name">${presetName(p)}</span>${
+      showGroup ? `<span class="p-tag">${groupLabel(p.group)}</span>` : ""}<br>
       <span class="p-notes">${p.notes.map(n => midiName(n + off)).join(" · ")}</span></span>
       <span class="p-check" aria-hidden="true">✓</span>`;
     item.addEventListener("click", () => {
@@ -711,6 +722,7 @@ function renderPresetSheet(filter = "") {
     // pour éviter que « standard e » ne renvoie aussi Standard Eb, etc.
     const tokens = q.split(/\s+/);
     const noteRe = /^[a-g][#b]?$/;
+    const numRe = /^\d+$/;
     // La recherche par notes contenues n'est permise que si la requête
     // est entièrement composée de notes (ex. « e a d g c f »)
     const allNotes = tokens.every(tok => noteRe.test(tok));
@@ -728,7 +740,11 @@ function renderPresetSheet(filter = "") {
       let score = 0;
       let ok = true;
       for (const tok of tokens) {
-        if (noteRe.test(tok)) {
+        if (numRe.test(tok)) {
+          // Nombre : filtre strict par nombre de cordes (« 7 », « 7 cordes »)
+          if (String(p.group) === tok) score += 10;
+          else { ok = false; break; }
+        } else if (noteRe.test(tok)) {
           // Note : mot entier du nom (« standard e » ≠ Standard Eb),
           // ou note présente dans l'accordage si la requête n'est que des notes
           if (words.includes(tok)) score += 10;
@@ -749,7 +765,7 @@ function renderPresetSheet(filter = "") {
       scored.push({ p, idx, score });
     });
     scored.sort((a, b) => b.score - a.score || a.idx - b.idx);
-    scored.forEach(({ p, idx }) => addItem(p, idx));
+    scored.forEach(({ p, idx }) => addItem(p, idx, true));
   }
 
   if (!count) {
@@ -953,6 +969,18 @@ function trapFocus(overlay, e) {
   const last = focusables[focusables.length - 1];
   if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
   else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+}
+
+// Clavier virtuel mobile : expose sa hauteur en variable CSS --kb pour que
+// les feuilles (recherche d'accordage…) restent visibles au-dessus du clavier
+if (window.visualViewport) {
+  const vv = window.visualViewport;
+  const updateKb = () => {
+    const kb = Math.max(0, window.innerHeight - vv.height - vv.offsetTop);
+    document.documentElement.style.setProperty("--kb", `${Math.round(kb)}px`);
+  };
+  vv.addEventListener("resize", updateKb);
+  vv.addEventListener("scroll", updateKb);
 }
 
 function bindEvents() {
