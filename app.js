@@ -27,6 +27,7 @@ const I18N = {
     micOff: "micro désactivé", soundHint: "Touchez une corde en mode Son 🔊",
     micBanner: "Micro non autorisé — utilisez le mode Son et accordez à l'oreille.",
     micRetry: "Réessayer",
+    updateReady: "Nouvelle version disponible — toucher pour mettre à jour",
     done: "Accordage terminé ✓", soundToast: "Touchez une corde pour l'écouter",
     cents: "cents", language: "Langue",
     legal: "Mentions légales", close: "Fermer", stringN: "Corde",
@@ -45,6 +46,7 @@ const I18N = {
     micOff: "mic disabled", soundHint: "Tap a string in Sound mode 🔊",
     micBanner: "Microphone not allowed — use Sound mode and tune by ear.",
     micRetry: "Try again",
+    updateReady: "New version available — tap to update",
     done: "Tuning complete ✓", soundToast: "Tap a string to hear it",
     cents: "cents", language: "Language",
     legal: "Legal notice", close: "Close", stringN: "String",
@@ -63,6 +65,7 @@ const I18N = {
     micOff: "micrófono desactivado", soundHint: "Toca una cuerda en modo Sonido 🔊",
     micBanner: "Micrófono no autorizado — usa el modo Sonido y afina de oído.",
     micRetry: "Reintentar",
+    updateReady: "Nueva versión disponible — toca para actualizar",
     done: "¡Afinación completada! ✓", soundToast: "Toca una cuerda para escucharla",
     cents: "cents", language: "Idioma",
     legal: "Aviso legal", close: "Cerrar", stringN: "Cuerda",
@@ -81,6 +84,7 @@ const I18N = {
     micOff: "microfono disattivato", soundHint: "Tocca una corda in modalità Suono 🔊",
     micBanner: "Microfono non autorizzato — usa la modalità Suono e accorda a orecchio.",
     micRetry: "Riprova",
+    updateReady: "Nuova versione disponibile — tocca per aggiornare",
     done: "Accordatura completata ✓", soundToast: "Tocca una corda per ascoltarla",
     cents: "cents", language: "Lingua",
     legal: "Note legali", close: "Chiudi", stringN: "Corda",
@@ -99,6 +103,7 @@ const I18N = {
     micOff: "Mikrofon deaktiviert", soundHint: "Tippe eine Saite im Ton-Modus an 🔊",
     micBanner: "Mikrofon nicht erlaubt — nutze den Ton-Modus und stimme nach Gehör.",
     micRetry: "Erneut versuchen",
+    updateReady: "Neue Version verfügbar — zum Aktualisieren tippen",
     done: "Stimmen abgeschlossen ✓", soundToast: "Tippe eine Saite an, um sie zu hören",
     cents: "Cent", language: "Sprache",
     legal: "Impressum", close: "Schließen", stringN: "Saite",
@@ -117,6 +122,7 @@ const I18N = {
     micOff: "microfone desativado", soundHint: "Toque numa corda no modo Som 🔊",
     micBanner: "Microfone não autorizado — use o modo Som e afine de ouvido.",
     micRetry: "Tentar novamente",
+    updateReady: "Nova versão disponível — toque para atualizar",
     done: "Afinação concluída ✓", soundToast: "Toque numa corda para ouvi-la",
     cents: "cents", language: "Idioma",
     legal: "Aviso legal", close: "Fechar", stringN: "Corda",
@@ -135,6 +141,7 @@ const I18N = {
     micOff: "麦克风已禁用", soundHint: "在声音模式下点击琴弦 🔊",
     micBanner: "麦克风未授权 — 请使用声音模式，凭听觉调音。",
     micRetry: "重试",
+    updateReady: "新版本可用 — 点击更新",
     done: "调音完成 ✓", soundToast: "点击琴弦即可试听",
     cents: "音分", language: "语言",
     legal: "法律声明", close: "关闭", stringN: "弦",
@@ -153,6 +160,7 @@ const I18N = {
     micOff: "マイク無効", soundHint: "サウンドモードで弦をタップ 🔊",
     micBanner: "マイクが許可されていません — サウンドモードで耳でチューニングしてください。",
     micRetry: "再試行",
+    updateReady: "新しいバージョンがあります — タップして更新",
     done: "チューニング完了 ✓", soundToast: "弦をタップすると音が鳴ります",
     cents: "セント", language: "言語",
     legal: "法的表示", close: "閉じる", stringN: "弦",
@@ -171,6 +179,7 @@ const I18N = {
     micOff: "마이크 꺼짐", soundHint: "소리 모드에서 줄을 탭하세요 🔊",
     micBanner: "마이크가 허용되지 않음 — 소리 모드로 귀로 튜닝하세요.",
     micRetry: "다시 시도",
+    updateReady: "새 버전이 있습니다 — 탭하여 업데이트",
     done: "튜닝 완료 ✓", soundToast: "줄을 탭하면 소리가 납니다",
     cents: "센트", language: "언어",
     legal: "법적 고지", close: "닫기", stringN: "현",
@@ -599,6 +608,7 @@ const el = {
   micBanner: $("micBanner"), micBannerText: $("micBannerText"), micRetry: $("micRetry"),
   legalLink: $("legalLink"),
   toast: $("toast"),
+  updateBtn: $("updateBtn"),
   srAnnounce: $("srAnnounce"),
 };
 
@@ -1106,7 +1116,27 @@ renderControls();
 
 // PWA : mise en cache hors-ligne (uniquement si servi via http/https)
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("sw.js").catch(() => {});
+  window.addEventListener("load", async () => {
+    try {
+      const reg = await navigator.serviceWorker.register("sw.js");
+
+      // PWA installée : revérifie s'il existe une nouvelle version à chaque
+      // retour au premier plan (sinon le SW n'est contrôlé qu'au lancement)
+      document.addEventListener("visibilitychange", () => {
+        if (document.visibilityState === "visible") reg.update().catch(() => {});
+      });
+
+      // Nouveau SW activé (skipWaiting + claim) : propose de recharger.
+      // hadController évite le faux positif de la toute première installation.
+      let hadController = !!navigator.serviceWorker.controller;
+      navigator.serviceWorker.addEventListener("controllerchange", () => {
+        if (hadController) {
+          el.updateBtn.textContent = t("updateReady");
+          el.updateBtn.hidden = false;
+        }
+        hadController = true;
+      });
+      el.updateBtn.addEventListener("click", () => location.reload());
+    } catch (_) {}
   });
 }
