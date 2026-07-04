@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-bJ1REv+4RdGnGpzXMUeaweJPyospHCH5Voa5C8u6MGs='; style-src 'self'; img-src 'self' data:; manifest-src 'self'; connect-src 'self'; media-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0c1017">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- SEO -->
+<title>Accordo — Free Online Guitar & Bass Tuner | Accordeur guitare & basse</title>
+<meta name="description" content="Free, accurate online chromatic tuner for 6/7/8-string guitar and 4/5/6-string bass. 50+ tunings: Drop C, Open G, DADGAD… No ads, no tracking, works offline. Accordeur gratuit et précis pour guitare et basse.">
+<meta name="keywords" content="guitar tuner, bass tuner, online tuner, accordeur guitare, accordeur basse, drop c tuner, open g, DADGAD, chromatic tuner, free tuner, afinador guitarra, Stimmgerät Gitarre">
+<meta name="author" content="Pierre Viéville">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://accordo.tools/">
+
+<!-- Open Graph / réseaux sociaux -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Accordo">
+<meta property="og:title" content="Accordo — Free Online Guitar & Bass Tuner">
+<meta property="og:description" content="Free, accurate chromatic tuner for guitar and bass. 50+ tunings, 9 languages, no ads, works offline.">
+<meta property="og:url" content="https://accordo.tools/">
+<meta property="og:image" content="https://accordo.tools/icon.svg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Accordo — Free Online Guitar & Bass Tuner">
+<meta name="twitter:description" content="Free, accurate chromatic tuner for guitar and bass. 50+ tunings, 9 languages, no ads, works offline.">
+<meta name="twitter:image" content="https://accordo.tools/icon.svg">
+
+<!-- Données structurées -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Accordo",
+  "url": "https://accordo.tools/",
+  "description": "Free, accurate online chromatic tuner for 6/7/8-string guitar and 4/5/6-string bass. 50+ tunings, 9 languages, no ads, works offline.",
+  "applicationCategory": "MusicApplication",
+  "operatingSystem": "Any",
+  "browserRequirements": "Requires a modern browser with microphone access",
+  "inLanguage": ["en", "fr", "es", "it", "de", "pt", "zh", "ja", "ko"],
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+  "author": {
+    "@type": "Person",
+    "name": "Pierre Viéville",
+    "url": "https://pierrevieville.fr"
+  }
+}
+</script>
+
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Écran de démarrage (obligatoire : geste utilisateur pour activer micro/audio) -->
+<div id="startOverlay" class="overlay">
+  <div class="start-card">
+    <div class="start-logo">
+      <svg viewBox="0 0 64 64" width="72" height="72" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" fill="none" stroke="#34d399" stroke-width="3"/>
+        <line x1="32" y1="34" x2="32" y2="12" stroke="#34d399" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="32" cy="36" r="5" fill="#34d399"/>
+      </svg>
+    </div>
+    <h1>Accordo</h1>
+    <p id="tagline">Accordeur guitare &amp; basse, simple et précis.</p>
+    <button id="startBtn" class="btn-primary">Commencer</button>
+    <p id="startHint" class="start-hint">L'accès au micro sera demandé pour écouter votre instrument.</p>
+    <a id="legalLink" class="legal-link" href="legal.html">Legal notice</a>
+  </div>
+</div>
+
+<!-- Contenu descriptif pour moteurs de recherche (sans JavaScript) -->
+<noscript>
+  <section>
+    <h2>Accordo — Free Online Guitar &amp; Bass Tuner</h2>
+    <p>Accordo is a free, accurate chromatic tuner for 6, 7 and 8-string guitars and 4, 5 and 6-string basses.
+      It offers more than 50 tunings (Standard, Drop D, Drop C, Drop B, Open G, Open D, DADGAD, All Fourths…),
+      a flat switch, reference tones to tune by ear, and automatic string detection — with no ads and no tracking.
+      JavaScript is required to use the tuner.</p>
+  </section>
+</noscript>
+
+<div id="app" class="app" hidden>
+
+  <!-- En-tête : titre + calibration -->
+  <header class="topbar">
+    <div class="brand">Accordo</div>
+    <div class="topbar-right">
+      <button id="langBtn" class="lang-btn" aria-label="Langue" aria-haspopup="dialog" aria-expanded="false">FR</button>
+      <div class="calib" role="group" aria-label="Calibration">
+        <button id="calibDown" class="calib-btn" aria-label="Diminuer la fréquence de référence">−</button>
+        <span id="calibValue" class="calib-value" aria-live="polite">440 Hz</span>
+        <button id="calibUp" class="calib-btn" aria-label="Augmenter la fréquence de référence">+</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Guitare / Basse -->
+  <div class="segmented" role="tablist" aria-label="Instrument">
+    <button id="segGuitar" class="seg active" role="tab" aria-selected="true">Guitare</button>
+    <button id="segBass" class="seg" role="tab" aria-selected="false">Basse</button>
+  </div>
+
+  <!-- Sélecteur de preset -->
+  <button id="presetBtn" class="preset-btn" aria-haspopup="dialog" aria-expanded="false">
+    <span id="presetLabel">Standard E · 6 cordes</span>
+    <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <!-- Cadran -->
+  <div class="gauge-card">
+    <svg id="gauge" viewBox="0 0 300 178" class="gauge" aria-hidden="true" focusable="false">
+      <g id="ticks"></g>
+      <path id="zoneArc" d="" class="zone-arc"/>
+      <g id="needle">
+        <line x1="150" y1="98" x2="150" y2="34" class="needle-line"/>
+      </g>
+      <text x="38"  y="172" class="gauge-minus">♭</text>
+      <text x="262" y="172" class="gauge-plus">♯</text>
+    </svg>
+    <div class="note-display">
+      <div id="noteName" class="note-name">–</div>
+      <div class="note-meta">
+        <span id="centsLabel" class="cents">&nbsp;</span>
+        <span id="freqLabel" class="freq">&nbsp;</span>
+      </div>
+      <div id="statusText" class="status" role="status" aria-live="polite">Jouez une corde…</div>
+    </div>
+  </div>
+
+  <!-- Cordes -->
+  <div id="stringsRow" class="strings" role="group"></div>
+
+  <!-- Boutons du bas -->
+  <footer class="controls">
+    <button id="flatBtn" class="ctrl">
+      <span class="ctrl-icon">♭</span><span id="flatLabel" class="ctrl-label">Flat</span>
+    </button>
+    <button id="autoBtn" class="ctrl active">
+      <span class="ctrl-icon">A</span><span id="autoLabel" class="ctrl-label">Auto</span>
+    </button>
+    <button id="soundBtn" class="ctrl">
+      <span class="ctrl-icon">🔊</span><span id="soundLabel" class="ctrl-label">Son</span>
+    </button>
+  </footer>
+
+  <div id="micBanner" class="mic-banner" role="alert" hidden>
+    Micro non autorisé — utilisez le mode Son et accordez à l'oreille.
+  </div>
+</div>
+
+<!-- Feuille de sélection des accordages -->
+<div id="presetSheet" class="overlay sheet-overlay" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <div class="sheet-head">
+      <span id="sheetTitle">Accordages</span>
+      <button id="sheetClose" class="sheet-close" aria-label="Fermer">✕</button>
+    </div>
+    <div class="sheet-search">
+      <input id="presetSearch" type="search" inputmode="search" autocomplete="off"
+             placeholder="Rechercher : Drop C, Open G, DADGAD…">
+    </div>
+    <div id="presetList" class="sheet-list"></div>
+  </div>
+</div>
+
+<!-- Feuille de sélection de la langue -->
+<div id="langSheet" class="overlay sheet-overlay" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="langTitle">
+    <div class="sheet-head">
+      <span id="langTitle">Langue</span>
+      <button id="langClose" class="sheet-close" aria-label="Fermer">✕</button>
+    </div>
+    <div id="langList" class="sheet-list"></div>
+  </div>
+</div>
+
+
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<div id="srAnnounce" class="sr-only" role="status" aria-live="polite"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

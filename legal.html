@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; img-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="noindex, follow">
+  <title>Legal notice — Accordo</title>
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --bg: #0c1017; --card: #131926; --border: #232c3d;
+      --text: #e8edf5; --muted: #8b96a8; --accent: #34d399;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.65; padding: 32px 20px 60px;
+    }
+    main { max-width: 640px; margin: 0 auto; }
+    h1 { font-size: 26px; margin-bottom: 6px; }
+    h1::first-letter { color: var(--accent); }
+    .sub { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
+    h2 { font-size: 17px; margin: 28px 0 10px; color: var(--accent); }
+    p, li { font-size: 14px; margin-bottom: 8px; }
+    ul { padding-left: 20px; }
+    a { color: var(--accent); }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 18px 20px; margin-bottom: 8px;
+    }
+    .top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .back { color: var(--muted); text-decoration: none; font-size: 14px; }
+    .back:hover { color: var(--text); }
+    select {
+      background: var(--card); color: var(--text);
+      border: 1px solid var(--border); border-radius: 999px;
+      padding: 7px 12px; font-size: 13px; font-family: inherit;
+    }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  </style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <a class="back" href="./" id="backLink">← Accordo</a>
+    <select id="langSelect" aria-label="Language"></select>
+  </div>
+
+  <h1 id="title">Legal notice</h1>
+  <p class="sub" id="sub">Accordo — online guitar &amp; bass tuner</p>
+
+  <h2 id="hPublisher"></h2>
+  <div class="card">
+    <p><strong>Pierre Viéville</strong> — <span id="pubType"></span></p>
+    <ul>
+      <li><span id="lAddress"></span> : 38 Route de Chevreux, 02200 Soissons, France</li>
+      <li>E-mail : <a href="mailto:contact@pierrevieville.fr">contact@pierrevieville.fr</a></li>
+      <li><span id="lPhone"></span> : +33 6 99 50 06 73</li>
+      <li><span id="lVat"></span> : FR54790135727</li>
+      <li><span id="lWebsite"></span> : <a href="https://pierrevieville.fr" rel="noopener">pierrevieville.fr</a></li>
+    </ul>
+  </div>
+
+  <h2 id="hHosting"></h2>
+  <p id="pHosting"></p>
+  <p>GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA —
+    <a href="https://pages.github.com" rel="noopener">pages.github.com</a></p>
+
+  <h2 id="hPrivacy"></h2>
+  <ul id="privacyList"></ul>
+
+  <h2 id="hIp"></h2>
+  <p id="pIp"></p>
+
+  <h2 id="hContact"></h2>
+  <p><a href="mailto:contact@pierrevieville.fr">contact@pierrevieville.fr</a><br>
+    <a href="https://www.instagram.com/pierre.vieville.metal" rel="noopener">Instagram</a> ·
+    <a href="https://www.tiktok.com/@pierrevieville" rel="noopener">TikTok</a></p>
+</main>
+
+<script src="legal.js"></script>
+</body>
+</html>
