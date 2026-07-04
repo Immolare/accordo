@@ -46,7 +46,7 @@ python -m http.server 8000
 ## Deploy on GitHub Pages
 
 1. Push this repository to GitHub
-2. **Settings → Pages → Source**: deploy from branch `main`, folder `/ (root)`
+2. **Settings → Pages → Source**: deploy via **GitHub Actions**
 3. **Settings → Pages → Custom domain**: enter `accordo.tools` (the `CNAME` file in this repo keeps it set), point your DNS to GitHub Pages (`A` records or `CNAME`), and tick **Enforce HTTPS**
 4. The tuner is live at [https://accordo.tools](https://accordo.tools)
 
