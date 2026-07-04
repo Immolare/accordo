@@ -367,10 +367,30 @@ async function initAudio() {
   if (actx.state === "suspended") { try { await actx.resume(); } catch (_) {} }
 
   try {
+    // Contraintes en "ideal" : mieux honorées par les navigateurs mobiles
+    // (iOS Safari / Chrome Android) qui, sinon, laissent actifs l'AGC, la
+    // suppression de bruit et l'annulation d'écho — tous nuisibles à la
+    // détection de hauteur d'un instrument.
     const stream = await navigator.mediaDevices.getUserMedia({
-      audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false },
+      audio: {
+        echoCancellation: { ideal: false },
+        noiseSuppression: { ideal: false },
+        autoGainControl: { ideal: false },
+        channelCount: { ideal: 1 },
+        latency: { ideal: 0 },
+      },
       video: false,
     });
+    // Seconde tentative directement sur la piste : certains Android
+    // n'appliquent ces réglages que via applyConstraints après coup.
+    const track = stream.getAudioTracks()[0];
+    if (track && track.applyConstraints) {
+      try {
+        await track.applyConstraints({
+          echoCancellation: false, noiseSuppression: false, autoGainControl: false,
+        });
+      } catch (_) {}
+    }
     const src = actx.createMediaStreamSource(stream);
     const hp = actx.createBiquadFilter();
     hp.type = "highpass"; hp.frequency.value = 22; hp.Q.value = 0.7;
@@ -405,6 +425,7 @@ function readSamples() {
 const YIN_THRESHOLD = 0.15;
 const YIN_WINDOW = 2048;
 let yinD = null, yinCMND = null;
+let noiseFloor = 0.003; // plancher de bruit suivi en continu
 
 function yinDetect(buf, sr) {
   const W = YIN_WINDOW;
@@ -412,11 +433,14 @@ function yinDetect(buf, sr) {
   const tauMin = Math.max(2, Math.floor(sr / 1200));
   if (tauMax <= tauMin) return -1;
 
-  // Porte de bruit (RMS)
+  // Porte de bruit adaptative : les micros de téléphone ont des gains très
+  // variables (AGC, matériel). Le plancher descend immédiatement au niveau
+  // ambiant et remonte lentement, la porte suit à 2,5× au-dessus.
   let rms = 0;
   for (let i = 0; i < W; i++) rms += buf[i] * buf[i];
   rms = Math.sqrt(rms / W);
-  if (rms < 0.007) return -1;
+  noiseFloor = Math.min(noiseFloor * 1.008, Math.max(rms, 1e-4));
+  if (rms < Math.max(0.0025, noiseFloor * 2.5)) return -1;
 
   if (!yinD || yinD.length < tauMax + 1) {
     yinD = new Float32Array(tauMax + 1);
