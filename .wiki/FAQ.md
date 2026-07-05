@@ -33,10 +33,6 @@ The YIN-based detector is accurate to well under **1 cent** across the whole sup
 
 English, Français, Español, Italiano, Deutsch, Português, 中文, 日本語 and 한국어. The language is auto-detected and can be changed with the button in the top bar.
 
-## My tuning is missing
-
-[Open an issue](https://github.com/Immolare/accordo/issues) with the tuning name and its notes from lowest to highest.
-
 ## I found a bug
 
 Please [report it](https://github.com/Immolare/accordo/issues) with your browser, device, and what you expected to happen.

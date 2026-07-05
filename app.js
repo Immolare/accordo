@@ -35,6 +35,12 @@ const I18N = {
     docTitle: "Accordo — Accordeur guitare & basse en ligne, gratuit et précis",
     metaDesc: "Accordeur chromatique gratuit pour guitare 6/7/8 cordes et basse 4/5/6 cordes. Plus de 50 accordages : Drop C, Open G, DADGAD… Sans pub, fonctionne hors-ligne.",
     openDm: "Open D mineur", fourths: "Quartes (EADGCF)", highC: "Standard E (aiguë C)",
+    customSheet: "Accordage personnalis\u00e9", customName: "Nom de l'accordage\u2026",
+    customSave: "Enregistrer", customSaved: "Accordage enregistr\u00e9",
+    customCreate: "+ Personnalis\u00e9", customImportPH: "Coller un code de partage\u2026",
+    customImport: "Importer", customAddLow: "+ Ajouter corde grave",
+    customAddHigh: "+ Ajouter corde aigu\u00eb", customShare: "Code\u00a0:",
+    customCopy: "Copier", customCopied: "Copi\u00e9\u00a0!",
   },
   en: {
     tagline: "Guitar & bass tuner — simple and accurate.", start: "Start",
@@ -54,6 +60,12 @@ const I18N = {
     docTitle: "Accordo — Free Online Guitar & Bass Tuner",
     metaDesc: "Free, accurate chromatic tuner for 6/7/8-string guitar and 4/5/6-string bass. 50+ tunings: Drop C, Open G, DADGAD… No ads, works offline.",
     openDm: "Open D Minor", fourths: "All Fourths (EADGCF)", highC: "Standard E (high C)",
+    customSheet: "Custom Tuning", customName: "Tuning name\u2026",
+    customSave: "Save", customSaved: "Tuning saved",
+    customCreate: "+ Custom", customImportPH: "Paste a share code\u2026",
+    customImport: "Import", customAddLow: "+ Add low string",
+    customAddHigh: "+ Add high string", customShare: "Code:",
+    customCopy: "Copy", customCopied: "Copied!",
   },
   es: {
     tagline: "Afinador de guitarra y bajo — simple y preciso.", start: "Comenzar",
@@ -73,6 +85,12 @@ const I18N = {
     docTitle: "Accordo — Afinador online gratis de guitarra y bajo",
     metaDesc: "Afinador cromático gratuito para guitarra de 6/7/8 cuerdas y bajo de 4/5/6 cuerdas. Más de 50 afinaciones: Drop C, Open G, DADGAD… Sin anuncios.",
     openDm: "Open D menor", fourths: "Cuartas (EADGCF)", highC: "Standard E (C agudo)",
+    customSheet: "Afinaci\u00f3n personalizada", customName: "Nombre de la afinaci\u00f3n\u2026",
+    customSave: "Guardar", customSaved: "Afinaci\u00f3n guardada",
+    customCreate: "+ Personalizada", customImportPH: "Pega un c\u00f3digo\u2026",
+    customImport: "Importar", customAddLow: "+ A\u00f1adir cuerda grave",
+    customAddHigh: "+ A\u00f1adir cuerda aguda", customShare: "C\u00f3digo:",
+    customCopy: "Copiar", customCopied: "\u00a1Copiado!",
   },
   it: {
     tagline: "Accordatore per chitarra e basso — semplice e preciso.", start: "Inizia",
@@ -92,6 +110,12 @@ const I18N = {
     docTitle: "Accordo — Accordatore online gratuito per chitarra e basso",
     metaDesc: "Accordatore cromatico gratuito per chitarra a 6/7/8 corde e basso a 4/5/6 corde. Oltre 50 accordature: Drop C, Open G, DADGAD… Senza pubblicità.",
     openDm: "Open D minore", fourths: "Quarte (EADGCF)", highC: "Standard E (C acuto)",
+    customSheet: "Accordatura personalizzata", customName: "Nome dell'accordatura\u2026",
+    customSave: "Salva", customSaved: "Accordatura salvata",
+    customCreate: "+ Personalizzata", customImportPH: "Incolla un codice di condivisione\u2026",
+    customImport: "Importa", customAddLow: "+ Aggiungi corda grave",
+    customAddHigh: "+ Aggiungi corda acuta", customShare: "Codice:",
+    customCopy: "Copia", customCopied: "Copiato!",
   },
   de: {
     tagline: "Gitarren- & Bass-Stimmgerät — einfach und präzise.", start: "Starten",
@@ -111,6 +135,12 @@ const I18N = {
     docTitle: "Accordo — Kostenloses Online-Stimmgerät für Gitarre & Bass",
     metaDesc: "Kostenloses, präzises Stimmgerät für 6/7/8-saitige Gitarren und 4/5/6-saitige Bässe. Über 50 Stimmungen: Drop C, Open G, DADGAD… Werbefrei.",
     openDm: "Open D-Moll", fourths: "Quarten (EADGCF)", highC: "Standard E (hohes C)",
+    customSheet: "Benutzerdefinierte Stimmung", customName: "Stimmungsname\u2026",
+    customSave: "Speichern", customSaved: "Stimmung gespeichert",
+    customCreate: "+ Benutzerdefiniert", customImportPH: "Code einf\u00fcgen\u2026",
+    customImport: "Importieren", customAddLow: "+ Tiefe Saite hinzuf\u00fcgen",
+    customAddHigh: "+ Hohe Saite hinzuf\u00fcgen", customShare: "Code:",
+    customCopy: "Kopieren", customCopied: "Kopiert!",
   },
   pt: {
     tagline: "Afinador de guitarra e baixo — simples e preciso.", start: "Começar",
@@ -130,6 +160,12 @@ const I18N = {
     docTitle: "Accordo — Afinador online grátis de guitarra e baixo",
     metaDesc: "Afinador cromático gratuito para guitarra de 6/7/8 cordas e baixo de 4/5/6 cordas. Mais de 50 afinações: Drop C, Open G, DADGAD… Sem anúncios.",
     openDm: "Open D menor", fourths: "Quartas (EADGCF)", highC: "Standard E (C agudo)",
+    customSheet: "Afinac\u00e3o personalizada", customName: "Nome da afina\u00e7\u00e3o\u2026",
+    customSave: "Salvar", customSaved: "Afina\u00e7\u00e3o salva",
+    customCreate: "+ Personalizada", customImportPH: "Cole um c\u00f3digo\u2026",
+    customImport: "Importar", customAddLow: "+ Adicionar corda grave",
+    customAddHigh: "+ Adicionar corda aguda", customShare: "C\u00f3digo:",
+    customCopy: "Copiar", customCopied: "Copiado!",
   },
   zh: {
     tagline: "简单精准的吉他与贝斯调音器。", start: "开始",
@@ -149,6 +185,12 @@ const I18N = {
     docTitle: "Accordo — 免费在线吉他与贝斯调音器",
     metaDesc: "免费精准的在线调音器，支持 6/7/8 弦吉他和 4/5/6 弦贝斯，50 多种调弦方式：Drop C、Open G、DADGAD…… 无广告，可离线使用。",
     openDm: "开放D小调", fourths: "纯四度 (EADGCF)", highC: "标准E（高音C）",
+    customSheet: "自定义调弦", customName: "调弦名称…",
+    customSave: "保存", customSaved: "调弦已保存",
+    customCreate: "+自定义", customImportPH: "粘贴分享代码…",
+    customImport: "导入", customAddLow: "+添加低弦",
+    customAddHigh: "+添加高弦", customShare: "代码：",
+    customCopy: "复制", customCopied: "已复制！",
   },
   ja: {
     tagline: "シンプルで正確なギター＆ベースチューナー。", start: "スタート",
@@ -168,6 +210,12 @@ const I18N = {
     docTitle: "Accordo — 無料オンラインギター＆ベースチューナー",
     metaDesc: "6/7/8弦ギターと4/5/6弦ベース対応の無料高精度チューナー。Drop C、Open G、DADGADなど50種類以上のチューニング。広告なし・オフライン対応。",
     openDm: "オープンDマイナー", fourths: "完全4度 (EADGCF)", highC: "スタンダードE（ハイC）",
+    customSheet: "カスタムチューニング", customName: "チューニング名…",
+    customSave: "保存", customSaved: "チューニングを保存しました",
+    customCreate: "+カスタム", customImportPH: "共有コードを貼り付け…",
+    customImport: "インポート", customAddLow: "+低弦を追加",
+    customAddHigh: "+高弦を追加", customShare: "コード：",
+    customCopy: "コピー", customCopied: "コピー完了！",
   },
   ko: {
     tagline: "간단하고 정확한 기타·베이스 튜너.", start: "시작",
@@ -187,6 +235,12 @@ const I18N = {
     docTitle: "Accordo — 무료 온라인 기타·베이스 튜너",
     metaDesc: "6/7/8현 기타와 4/5/6현 베이스를 위한 무료 고정밀 튜너. Drop C, Open G, DADGAD 등 50가지 이상의 튜닝. 광고 없음, 오프라인 지원.",
     openDm: "오픈 D 마이너", fourths: "4도 (EADGCF)", highC: "스탠다드 E (하이 C)",
+    customSheet: "사용자 설정 튜닝", customName: "튜닝 이름…",
+    customSave: "저장", customSaved: "튜닝이 저장되었습니다",
+    customCreate: "+사용자 설정", customImportPH: "공유 코드 붙여넣기…",
+    customImport: "가져오기", customAddLow: "+저음현 추가",
+    customAddHigh: "+고음현 추가", customShare: "코드:",
+    customCopy: "복사", customCopied: "복사됨!",
   },
 };
 
@@ -289,6 +343,8 @@ const state = {
   displayCents: 0,            // valeur lissée pour l'aiguille
   inTune: false,
   holdStart: 0,
+  customTunings: [],
+  customPreset: null,
 };
 
 /* ---------------- Persistance légère (réglages uniquement) ---------------- */
@@ -302,6 +358,13 @@ function loadSettings() {
     if (Number.isInteger(s.presetIndex) && PRESETS[state.instrument][s.presetIndex]) state.presetIndex = s.presetIndex;
     if (typeof s.flat === "boolean") state.flat = s.flat;
     if (LANGS[s.lang]) state.lang = s.lang;
+    if (typeof s.customPresetId === "string") {
+      const found = state.customTunings.find(t => t.id === s.customPresetId && t.instrument === state.instrument);
+      if (found) {
+        state.customPreset = { _id: found.id, name: found.name, group: found.notes.length, notes: found.notes };
+        state.presetIndex = -1;
+      }
+    }
   } catch (_) { /* ignore */ }
 }
 function saveSettings() {
@@ -309,11 +372,27 @@ function saveSettings() {
     localStorage.setItem("accordo", JSON.stringify({
       calib: state.calib, instrument: state.instrument,
       presetIndex: state.presetIndex, flat: state.flat, lang: state.lang,
+      customPresetId: state.customPreset ? state.customPreset._id : null,
     }));
-  } catch (_) { /* ignore */ }
+  } catch (_) {}
 }
 
 /* ---------------- i18n ---------------- */
+
+/* ---------------- Persistance accordages personnalises ---------------- */
+
+function loadCustomTunings() {
+  try {
+    const raw = localStorage.getItem("accordo-custom");
+    if (raw) state.customTunings = JSON.parse(raw);
+    if (!Array.isArray(state.customTunings)) state.customTunings = [];
+  } catch (_) { state.customTunings = []; }
+}
+function saveCustomTunings() {
+  try {
+    localStorage.setItem("accordo-custom", JSON.stringify(state.customTunings));
+  } catch (_) {}
+}
 
 function detectLang() {
   const cands = navigator.languages || [navigator.language || "en"];
@@ -358,20 +437,277 @@ function applyLang() {
   el.langClose.setAttribute("aria-label", t("close"));
   el.calibDown.setAttribute("aria-label", t("calibDown"));
   el.calibUp.setAttribute("aria-label", t("calibUp"));
+  if (el.customSheetTitle) el.customSheetTitle.textContent = t("customSheet");
+  if (el.customNameInput) el.customNameInput.placeholder = t("customName");
+  if (el.customSaveBtn) el.customSaveBtn.textContent = t("customSave");
+  if (el.createCustomBtn) el.createCustomBtn.textContent = t("customCreate");
+  if (el.customImportInput) el.customImportInput.placeholder = t("customImportPH");
+  if (el.customImportBtn) el.customImportBtn.textContent = t("customImport");
+  if (el.customAddLow) el.customAddLow.textContent = t("customAddLow");
+  if (el.customAddHigh) el.customAddHigh.textContent = t("customAddHigh");
+  if (el.customShareLabel) el.customShareLabel.textContent = t("customShare");
+  if (el.customShareCopy) el.customShareCopy.textContent = t("customCopy");
+  if (el.customSheetClose) el.customSheetClose.setAttribute("aria-label", t("close"));
   renderPresetLabel();
   renderStrings();
 }
 
 /* ---------------- Utilitaires musique ---------------- */
 
-function currentPreset() { return PRESETS[state.instrument][state.presetIndex]; }
+function currentPreset() {
+  return state.customPreset || PRESETS[state.instrument][state.presetIndex];
+}
 function stringMidis() {
   const off = state.flat ? -1 : 0;
   return currentPreset().notes.map(n => n + off);
 }
 function midiToFreq(m) { return state.calib * Math.pow(2, (m - 69) / 12); }
 function midiName(m) { return (state.flat ? NOTES_FLAT : NOTES)[((m % 12) + 12) % 12]; }
+function midiOctave(m) { return Math.floor(m / 12) - 1; }
+function midiDisplay(m) {
+  return `${midiName(m)}<sub>${midiOctave(m)}</sub>`;
+}
+function midiLabel(m) {
+  return `${midiName(m)} ${midiOctave(m)}`;
+}
+const NOTE_NAMES_SHARP = NOTES;
+function noteOctaveToMIDI(noteIdx, oct) {
+  return noteIdx + (oct + 1) * 12;
+}
+function midiToNoteOctave(m) {
+  return { noteIdx: ((m % 12) + 12) % 12, oct: midiOctave(m) };
+}
 function centsOff(freq, target) { return 1200 * Math.log2(freq / target); }
+
+/* ---------------- Accordages personnalises ---------------- */
+
+function generateShareCode(instrument, notes, name) {
+  const instChar = instrument === "guitar" ? "G" : "B";
+  const noteStr = notes.map(m => {
+    const { noteIdx, oct } = midiToNoteOctave(m);
+    return NOTE_NAMES_SHARP[noteIdx] + oct;
+  }).join("");
+  const encodedName = encodeURIComponent(name);
+  return instChar + notes.length + noteStr + ":" + encodedName;
+}
+
+function parseShareCode(code) {
+  if (!code || typeof code !== "string") return null;
+  let i = 0;
+  const ch = code[i];
+  if (ch !== "G" && ch !== "B") return null;
+  const instrument = ch === "G" ? "guitar" : "bass";
+  i++;
+  let countStr = "";
+  while (i < code.length && /[0-9]/.test(code[i])) { countStr += code[i]; i++; }
+  const count = parseInt(countStr, 10);
+  if (isNaN(count) || count < 1 || count > 20) return null;
+  const notes = [];
+  for (let j = 0; j < count; j++) {
+    if (i >= code.length) return null;
+    const letter = code[i].toUpperCase();
+    if (!/[A-G]/.test(letter)) return null;
+    i++;
+    let sharp = false;
+    if (i < code.length && code[i] === "#") { sharp = true; i++; }
+    if (i >= code.length || !/[0-9]/.test(code[i])) return null;
+    const oct = parseInt(code[i], 10);
+    i++;
+    const noteName = letter + (sharp ? "#" : "");
+    const noteIdx = NOTE_NAMES_SHARP.indexOf(noteName);
+    if (noteIdx === -1) return null;
+    notes.push(noteOctaveToMIDI(noteIdx, oct));
+  }
+  let name = "";
+  if (i < code.length && code[i] === ":") {
+    i++;
+    name = decodeURIComponent(code.slice(i));
+  }
+  return { instrument, notes, name };
+}
+
+function renderCustomSheet() {
+  const inst = state.instrument;
+  let src = state.customPreset;
+  if (!src) {
+    const presets = PRESETS[inst];
+    const idx = (state.presetIndex >= 0 && state.presetIndex < presets.length) ? state.presetIndex : 0;
+    src = presets[idx];
+  }
+  if (!src || !src.notes) return;
+  const rows = src.notes.map(m => {
+    const { noteIdx, oct } = midiToNoteOctave(m);
+    return { noteIdx, oct, added: false };
+  });
+  renderCustomStringRows(rows);
+  el.customNameInput.value = "";
+  el.customShareDisplay.hidden = true;
+  el.customShareCodeInput.value = "";
+}
+
+function getCustomRows() {
+  const result = [];
+  const rows = el.customStringsContainer.querySelectorAll(".custom-string-row");
+  for (const row of rows) {
+    const ns = row.querySelector(".custom-note-select");
+    const os = row.querySelector(".custom-octave-select");
+    const rm = row.querySelector(".custom-row-remove");
+    const nv = parseInt(ns.value, 10);
+    const ov = parseInt(os.value, 10);
+    result.push({
+      noteIdx: isNaN(nv) ? null : nv,
+      oct: isNaN(ov) ? null : ov,
+      added: !!rm,
+    });
+  }
+  return result;
+}
+
+function renderCustomStringRows(rows) {
+  const c = el.customStringsContainer;
+  c.innerHTML = "";
+  rows.forEach((row, idx) => {
+    const div = document.createElement("div");
+    div.className = "custom-string-row";
+    const label = document.createElement("span");
+    label.className = "custom-string-label";
+    const pos = rows.length - idx;
+    label.textContent = ordinal(pos);
+    label.setAttribute("data-pos", pos);
+    div.appendChild(label);
+
+    const noteSel = document.createElement("select");
+    noteSel.className = "custom-note-select";
+    const notePlaceholder = document.createElement("option");
+    notePlaceholder.value = "";
+    notePlaceholder.disabled = true;
+    notePlaceholder.selected = row.noteIdx === null;
+    notePlaceholder.textContent = "Note";
+    noteSel.appendChild(notePlaceholder);
+    NOTE_NAMES_SHARP.forEach((nn, ni) => {
+      const opt = document.createElement("option");
+      opt.value = ni;
+      opt.textContent = nn;
+      if (row.noteIdx === ni) opt.selected = true;
+      noteSel.appendChild(opt);
+    });
+    noteSel.addEventListener("change", () => updateCustomLabel(noteSel, octSel, label));
+    div.appendChild(noteSel);
+
+    const octSel = document.createElement("select");
+    octSel.className = "custom-octave-select";
+    const octPlaceholder = document.createElement("option");
+    octPlaceholder.value = "";
+    octPlaceholder.disabled = true;
+    octPlaceholder.selected = row.oct === null;
+    octPlaceholder.textContent = "Octave";
+    octSel.appendChild(octPlaceholder);
+    for (let o = 0; o <= 7; o++) {
+      const opt = document.createElement("option");
+      opt.value = o;
+      opt.textContent = o;
+      if (row.oct === o) opt.selected = true;
+      octSel.appendChild(opt);
+    }
+    octSel.addEventListener("change", () => updateCustomLabel(noteSel, octSel, label));
+    div.appendChild(octSel);
+
+    if (row.added) {
+      const rmBtn = document.createElement("button");
+      rmBtn.className = "custom-row-remove";
+      rmBtn.textContent = "\u00d7";
+      rmBtn.setAttribute("aria-label", "Remove");
+      rmBtn.addEventListener("click", () => {
+        rows.splice(idx, 1);
+        renderCustomStringRows(rows);
+      });
+      div.appendChild(rmBtn);
+    }
+
+    c.appendChild(div);
+  });
+}
+
+function ordinal(n) {
+  n = Number(n);
+  if (isNaN(n)) return "";
+  if (n >= 11 && n <= 13) return n + "th";
+  switch (n % 10) {
+    case 1: return n + "st";
+    case 2: return n + "nd";
+    case 3: return n + "rd";
+    default: return n + "th";
+  }
+}
+
+function updateCustomLabel(noteSel, octSel, labelEl) {
+  const nv = parseInt(noteSel.value, 10);
+  const ov = parseInt(octSel.value, 10);
+  const pos = labelEl.getAttribute("data-pos") || "";
+  if (!isNaN(nv) && !isNaN(ov)) {
+    const midi = noteOctaveToMIDI(nv, ov);
+    const note = NOTE_NAMES_SHARP[nv];
+    labelEl.innerHTML = ordinal(pos) + " " + note + "<sub>" + midiOctave(midi) + "</sub>";
+    noteSel.title = midiName(midi) + " " + midiOctave(midi);
+  } else {
+    labelEl.innerHTML = ordinal(pos);
+  }
+}
+
+function onCustomSave() {
+  const rows = el.customStringsContainer.querySelectorAll(".custom-string-row");
+  const notes = [];
+  for (const row of rows) {
+    const ns = row.querySelector(".custom-note-select");
+    const os = row.querySelector(".custom-octave-select");
+    const nv = parseInt(ns.value, 10);
+    const ov = parseInt(os.value, 10);
+    if (isNaN(nv) || isNaN(ov)) {
+      showToast("Please select note and octave for all strings");
+      return;
+    }
+    notes.push(noteOctaveToMIDI(nv, ov));
+  }
+  const name = el.customNameInput.value.trim() || "Custom " + groupLabel(notes.length);
+  const instrument = state.instrument;
+  const shareCode = generateShareCode(instrument, notes, name);
+  const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  const tuning = { id, name, instrument, notes, shareCode };
+  state.customTunings = state.customTunings.filter(t => t.id !== id);
+  state.customTunings.push(tuning);
+  saveCustomTunings();
+  state.customPreset = { _id: id, name, group: notes.length, notes };
+  state.presetIndex = -1;
+  onTuningChanged();
+  el.customShareCodeInput.value = shareCode;
+  el.customShareDisplay.hidden = false;
+  showToast(t("customSaved"));
+}
+
+function onCustomImport() {
+  const code = el.customImportInput.value.trim();
+  if (!code) return;
+  const parsed = parseShareCode(code);
+  if (!parsed) {
+    showToast("Invalid share code");
+    return;
+  }
+  const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  const name = parsed.name || "Imported " + groupLabel(parsed.notes.length);
+  const tuning = { id, name, instrument: parsed.instrument, notes: parsed.notes, shareCode: code };
+  state.customTunings = state.customTunings.filter(t => t.id !== id);
+  state.customTunings.push(tuning);
+  saveCustomTunings();
+  if (parsed.instrument === state.instrument) {
+    state.customPreset = { _id: id, name, group: parsed.notes.length, notes: parsed.notes };
+    state.presetIndex = -1;
+    onTuningChanged();
+    closeSheet(el.presetSheet);
+  } else {
+    showToast("Imported for " + parsed.instrument + " — switch instrument to see it");
+  }
+  el.customImportInput.value = "";
+}
 
 /* ---------------- Audio ---------------- */
 
@@ -535,7 +871,7 @@ function stableFreq() {
 
 function playNote(freq, duration = 2.2) {
   if (!actx) return;
-  if (actx.state === "suspended") actx.resume();
+  if (actx.state === "suspended") try { actx.resume(); } catch (_) {}
   const t0 = actx.currentTime;
 
   const master = actx.createGain();
@@ -607,6 +943,21 @@ const el = {
   calibDown: $("calibDown"), calibUp: $("calibUp"), calibValue: $("calibValue"),
   micBanner: $("micBanner"), micBannerText: $("micBannerText"), micRetry: $("micRetry"),
   legalLink: $("legalLink"),
+  createCustomBtn: $("createCustomBtn"),
+  customImportInput: $("customImportInput"),
+  customImportBtn: $("customImportBtn"),
+  customSheet: $("customSheet"),
+  customSheetTitle: $("customSheetTitle"),
+  customSheetClose: $("customSheetClose"),
+  customNameInput: $("customNameInput"),
+  customStringsContainer: $("customStringsContainer"),
+  customAddLow: $("customAddLow"),
+  customAddHigh: $("customAddHigh"),
+  customSaveBtn: $("customSaveBtn"),
+  customShareDisplay: $("customShareDisplay"),
+  customShareLabel: $("customShareLabel"),
+  customShareCodeInput: $("customShareCodeInput"),
+  customShareCopy: $("customShareCopy"),
   toast: $("toast"),
   updateBtn: $("updateBtn"),
   srAnnounce: $("srAnnounce"),
@@ -659,9 +1010,9 @@ function renderStrings() {
       + (i === state.selectedString ? " selected" : "")
       + (state.tuned[i] ? " tuned" : "");
     btn.setAttribute("aria-label",
-      `${t("stringN")} ${i + 1} — ${midiName(m)}${state.tuned[i] ? " — " + t("inTune") : ""}`);
+      `${t("stringN")} ${i + 1} — ${midiLabel(m)}${state.tuned[i] ? " — " + t("inTune") : ""}`);
     if (i === state.selectedString) btn.setAttribute("aria-current", "true");
-    btn.innerHTML = `<span class="s-note" aria-hidden="true">${midiName(m)}</span>`;
+    btn.innerHTML = `<span class="s-note" aria-hidden="true">${midiDisplay(m)}</span>`;
     btn.addEventListener("click", () => {
       state.selectedString = i;
       state.auto = false;
@@ -702,18 +1053,24 @@ function renderPresetSheet(filter = "") {
   const q = norm(filter.trim()).replace(/♯/g, "#").replace(/♭/g, "b");
   el.presetList.innerHTML = "";
   const presets = PRESETS[state.instrument];
+  const customs = state.customTunings.filter(t => t.instrument === state.instrument);
   let count = 0;
 
-  const addItem = (p, idx, showGroup) => {
-    const off = state.flat ? -1 : 0;
+  const off = state.flat ? -1 : 0;
+
+  const isCustomSelected = (t) =>
+    state.customPreset && state.customPreset._id === t.id;
+
+  const addBuiltinItem = (p, idx, showGroup) => {
     const item = document.createElement("button");
     item.className = "sheet-item" + (idx === state.presetIndex ? " selected" : "");
     if (idx === state.presetIndex) item.setAttribute("aria-current", "true");
     item.innerHTML = `<span class="p-main"><span class="p-name">${presetName(p)}</span>${
       showGroup ? `<span class="p-tag">${groupLabel(p.group)}</span>` : ""}<br>
-      <span class="p-notes">${p.notes.map(n => midiName(n + off)).join(" · ")}</span></span>
+      <span class="p-notes">${p.notes.map(n => midiDisplay(n + off)).join(" · ")}</span></span>
       <span class="p-check" aria-hidden="true">✓</span>`;
     item.addEventListener("click", () => {
+      state.customPreset = null;
       state.presetIndex = idx;
       onTuningChanged();
       closeSheet(el.presetSheet);
@@ -723,8 +1080,65 @@ function renderPresetSheet(filter = "") {
     count++;
   };
 
+  const addCustomItem = (custom) => {
+    const sel = isCustomSelected(custom);
+    const item = document.createElement("button");
+    item.className = "sheet-item" + (sel ? " selected" : "");
+    if (sel) item.setAttribute("aria-current", "true");
+    item.innerHTML = `<span class="p-main"><span class="p-name"></span>
+      <span class="p-tag">${groupLabel(custom.notes.length)}</span><br>
+      <span class="p-notes">${custom.notes.map(n => midiDisplay(n + off)).join(" · ")}</span></span>
+      <span class="p-check" aria-hidden="true">✓</span>`;
+    item.querySelector(".p-name").textContent = custom.name;
+    item.addEventListener("click", () => {
+      state.customPreset = { _id: custom.id, name: custom.name, group: custom.notes.length, notes: custom.notes };
+      state.presetIndex = -1;
+      onTuningChanged();
+      closeSheet(el.presetSheet);
+      saveSettings();
+    });
+    const copyBtn = document.createElement("button");
+    copyBtn.className = "custom-preset-copy";
+    copyBtn.textContent = "\uD83D\uDCCB";
+    copyBtn.setAttribute("aria-label", t("customCopy"));
+    copyBtn.addEventListener("click", e => {
+      e.stopPropagation();
+      const code = generateShareCode(custom.instrument, custom.notes, custom.name);
+      copyToClipboard(code).catch(() => {});
+      showToast(t("customCopied"));
+    });
+    item.appendChild(copyBtn);
+    const delBtn = document.createElement("button");
+    delBtn.className = "custom-preset-del";
+    delBtn.textContent = "\u00d7";
+    delBtn.setAttribute("aria-label", "Delete");
+    delBtn.addEventListener("click", e => {
+      e.stopPropagation();
+      state.customTunings = state.customTunings.filter(x => x.id !== custom.id);
+      if (state.customPreset && state.customPreset._id === custom.id) {
+        state.customPreset = null;
+        state.presetIndex = 0;
+        onTuningChanged();
+      }
+      saveCustomTunings();
+      renderPresetSheet(filter);
+    });
+    item.appendChild(delBtn);
+    el.presetList.appendChild(item);
+    count++;
+  };
+
   if (!q) {
-    // Sans recherche : liste complète groupée par nombre de cordes
+    // Custom tunings first
+    if (customs.length) {
+      const h = document.createElement("div");
+      h.className = "sheet-group";
+      h.textContent = "Custom";
+      el.presetList.appendChild(h);
+      customs.forEach(t => addCustomItem(t));
+    }
+
+    // Built-in presets grouped by string count
     let lastGroup = null;
     presets.forEach((p, idx) => {
       if (p.group !== lastGroup) {
@@ -734,7 +1148,7 @@ function renderPresetSheet(filter = "") {
         h.textContent = groupLabel(p.group);
         el.presetList.appendChild(h);
       }
-      addItem(p, idx);
+      addBuiltinItem(p, idx);
     });
   } else {
     // Avec recherche : filtrage strict + tri par pertinence.
@@ -743,9 +1157,9 @@ function renderPresetSheet(filter = "") {
     const tokens = q.split(/\s+/);
     const noteRe = /^[a-g][#b]?$/;
     const numRe = /^\d+$/;
-    // La recherche par notes contenues n'est permise que si la requête
-    // est entièrement composée de notes (ex. « e a d g c f »)
     const allNotes = tokens.every(tok => noteRe.test(tok));
+
+    // Score built-in presets
     const scored = [];
     presets.forEach((p, idx) => {
       const nameN = norm(presetName(p));
@@ -761,12 +1175,9 @@ function renderPresetSheet(filter = "") {
       let ok = true;
       for (const tok of tokens) {
         if (numRe.test(tok)) {
-          // Nombre : filtre strict par nombre de cordes (« 7 », « 7 cordes »)
           if (String(p.group) === tok) score += 10;
           else { ok = false; break; }
         } else if (noteRe.test(tok)) {
-          // Note : mot entier du nom (« standard e » ≠ Standard Eb),
-          // ou note présente dans l'accordage si la requête n'est que des notes
           if (words.includes(tok)) score += 10;
           else if (allNotes && noteSet.has(tok)) score += 2;
           else { ok = false; break; }
@@ -782,10 +1193,36 @@ function renderPresetSheet(filter = "") {
       if (nameN === q) score += 100;
       else if (nameN.startsWith(q)) score += 50;
       else if (nameN.includes(q)) score += 30;
-      scored.push({ p, idx, score });
+      scored.push({ p, idx, score, type: "builtin" });
     });
-    scored.sort((a, b) => b.score - a.score || a.idx - b.idx);
-    scored.forEach(({ p, idx }) => addItem(p, idx, true));
+
+    // Score custom tunings
+    customs.forEach(t => {
+      const nameN = norm(t.name);
+      let score = 0;
+      let ok = true;
+      for (const tok of tokens) {
+        if (numRe.test(tok)) {
+          if (String(t.notes.length) === tok) score += 10;
+          else { ok = false; break; }
+        } else if (nameN.includes(tok)) {
+          score += 10;
+        } else {
+          ok = false; break;
+        }
+      }
+      if (!ok) return;
+      if (nameN === q) score += 100;
+      else if (nameN.startsWith(q)) score += 50;
+      else if (nameN.includes(q)) score += 30;
+      scored.push({ t, score, type: "custom" });
+    });
+
+    scored.sort((a, b) => b.score - a.score || (a.type === "custom" ? -1 : 1));
+    scored.forEach(entry => {
+      if (entry.type === "custom") addCustomItem(entry.t);
+      else addBuiltinItem(entry.p, entry.idx, true);
+    });
   }
 
   if (!count) {
@@ -803,8 +1240,9 @@ function renderLangSheet() {
     item.className = "sheet-item" + (code === state.lang ? " selected" : "");
     item.setAttribute("lang", code);
     if (code === state.lang) item.setAttribute("aria-current", "true");
-    item.innerHTML = `<span class="p-main"><span class="p-name">${label}</span></span>
+    item.innerHTML = `<span class="p-main"><span class="p-name"></span></span>
       <span class="p-check" aria-hidden="true">✓</span>`;
+    item.querySelector(".p-name").textContent = label;
     item.addEventListener("click", () => {
       state.lang = code;
       applyLang();
@@ -886,7 +1324,7 @@ function processDetection() {
       state.tuned[target] = true;
       playDing();
       vibrate(70);
-      el.srAnnounce.textContent = `${midiName(midis[target])} — ${t("inTune")}`;
+      el.srAnnounce.textContent = `${midiLabel(midis[target])} — ${t("inTune")}`;
       renderStrings();
       checkAllTuned();
     }
@@ -921,7 +1359,8 @@ function renderGauge() {
 
   const midis = stringMidis();
   const m = midis[state.selectedString];
-  setText(el.noteName, midiName(m));
+  const html = midiDisplay(m);
+  if (el.noteName.innerHTML !== html) el.noteName.innerHTML = html;
 
   el.gauge.classList.toggle("idle", !active);
   el.gauge.classList.toggle("in-tune", active && state.inTune);
@@ -951,6 +1390,25 @@ function setText(node, txt) {
   if (node.textContent !== txt) node.textContent = txt;
 }
 
+/* ---------------- Clipboard ---------------- */
+
+function copyToClipboard(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    return navigator.clipboard.writeText(text);
+  }
+  return new Promise((resolve, reject) => {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.cssText = "position:fixed;left:-9999px;top:-9999px";
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try { document.execCommand("copy") ? resolve() : reject(); }
+    catch (_) { reject(_); }
+    document.body.removeChild(ta);
+  });
+}
+
 /* ---------------- Toast ---------------- */
 
 let toastTimer = null;
@@ -977,9 +1435,11 @@ function openSheet(overlay, trigger, focusTarget) {
 
 function closeSheet(overlay) {
   overlay.hidden = true;
-  el.app.inert = false;
+  const anyOpen = !el.presetSheet.hidden || !el.langSheet.hidden || !el.customSheet.hidden;
+  if (!anyOpen) el.app.inert = false;
   el.presetBtn.setAttribute("aria-expanded", String(!el.presetSheet.hidden));
   el.langBtn.setAttribute("aria-expanded", String(!el.langSheet.hidden));
+  el.createCustomBtn.setAttribute("aria-expanded", String(!el.customSheet.hidden));
   if (sheetReturnFocus) { sheetReturnFocus.focus(); sheetReturnFocus = null; }
 }
 
@@ -1037,6 +1497,7 @@ function bindEvents() {
   el.segGuitar.addEventListener("click", () => {
     if (state.instrument === "guitar") return;
     state.instrument = "guitar";
+    state.customPreset = null;
     state.presetIndex = 0;
     onTuningChanged();
     saveSettings();
@@ -1044,6 +1505,7 @@ function bindEvents() {
   el.segBass.addEventListener("click", () => {
     if (state.instrument === "bass") return;
     state.instrument = "bass";
+    state.customPreset = null;
     state.presetIndex = 0;
     onTuningChanged();
     saveSettings();
@@ -1060,9 +1522,45 @@ function bindEvents() {
     if (e.target === el.presetSheet) closeSheet(el.presetSheet);
   });
 
+  // Custom tuning button + import
+  el.createCustomBtn.addEventListener("click", () => {
+    closeSheet(el.presetSheet);
+    renderCustomSheet();
+    openSheet(el.customSheet, el.createCustomBtn, el.customNameInput);
+  });
+  el.customImportBtn.addEventListener("click", onCustomImport);
+  el.customImportInput.addEventListener("keydown", e => {
+    if (e.key === "Enter") onCustomImport();
+  });
+
+  // Custom sheet
+  el.customSheetClose.addEventListener("click", () => closeSheet(el.customSheet));
+  el.customSheet.addEventListener("click", e => {
+    if (e.target === el.customSheet) closeSheet(el.customSheet);
+  });
+  el.customSaveBtn.addEventListener("click", onCustomSave);
+  el.customAddLow.addEventListener("click", () => {
+    const rows = getCustomRows();
+    rows.unshift({ noteIdx: null, oct: null, added: true });
+    renderCustomStringRows(rows);
+  });
+  el.customAddHigh.addEventListener("click", () => {
+    const rows = getCustomRows();
+    rows.push({ noteIdx: null, oct: null, added: true });
+    renderCustomStringRows(rows);
+  });
+  el.customShareCopy.addEventListener("click", () => {
+    el.customShareCodeInput.select();
+      copyToClipboard(el.customShareCodeInput.value).catch(() => {});
+    showToast(t("customCopied"));
+  });
+
   // Clavier : Échap ferme la feuille ouverte, Tab y reste confiné
   document.addEventListener("keydown", e => {
-    const open = !el.presetSheet.hidden ? el.presetSheet : !el.langSheet.hidden ? el.langSheet : null;
+    const open = !el.presetSheet.hidden ? el.presetSheet
+      : !el.langSheet.hidden ? el.langSheet
+      : !el.customSheet.hidden ? el.customSheet
+      : null;
     if (!open) return;
     if (e.key === "Escape") { e.preventDefault(); closeSheet(open); }
     else if (e.key === "Tab") trapFocus(open, e);
@@ -1106,6 +1604,7 @@ function bindEvents() {
 
 /* ---------------- Démarrage ---------------- */
 
+loadCustomTunings();
 loadSettings();
 buildGauge();
 bindEvents();

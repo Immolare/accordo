@@ -178,6 +178,14 @@
       <input id="presetSearch" type="search" inputmode="search" autocomplete="off"
              placeholder="Rechercher : Drop C, Open G, DADGAD…">
     </div>
+    <div class="custom-actions-bar">
+      <button id="createCustomBtn" class="custom-create-btn">+ Custom</button>
+      <div class="custom-import-bar">
+        <input id="customImportInput" type="text" inputmode="text" autocomplete="off"
+               placeholder="Paste a share code...">
+        <button id="customImportBtn" class="custom-import-btn">Import</button>
+      </div>
+    </div>
     <div id="presetList" class="sheet-list"></div>
   </div>
 </div>
@@ -193,6 +201,33 @@
   </div>
 </div>
 
+
+<!-- Feuille de creation d'accordage personnalise -->
+<div id="customSheet" class="overlay sheet-overlay" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="customSheetTitle">
+    <div class="sheet-head">
+      <span id="customSheetTitle">Custom Tuning</span>
+      <button id="customSheetClose" class="sheet-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="custom-name-row">
+      <input id="customNameInput" type="text" inputmode="text" autocomplete="off"
+             placeholder="Tuning name...">
+    </div>
+    <div id="customStringsContainer" class="custom-strings"></div>
+    <div class="custom-add-row">
+      <button id="customAddLow" class="custom-add-btn">+ Add low string</button>
+      <button id="customAddHigh" class="custom-add-btn">+ Add high string</button>
+    </div>
+    <div class="custom-footer">
+      <button id="customSaveBtn" class="btn-primary custom-save-btn">Save</button>
+      <div id="customShareDisplay" class="custom-share" hidden>
+        <span id="customShareLabel" class="custom-share-label">Code:</span>
+        <input id="customShareCodeInput" type="text" readonly class="custom-share-input">
+        <button id="customShareCopy" class="custom-share-copy">Copy</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <button id="updateBtn" class="update-banner" hidden></button>
