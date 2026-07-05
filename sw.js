@@ -1,9 +1,10 @@
 /* Accordo — service worker : cache hors-ligne minimal */
-const CACHE = "accordo-v13";
+const CACHE = "accordo-v14";
 const ASSETS = [
   "./",
   "./index.html",
   "./style.css",
+  "./i18n.js",
   "./app.js",
   "./manifest.webmanifest",
   "./icon.svg",
