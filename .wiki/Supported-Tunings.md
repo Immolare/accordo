@@ -2,6 +2,10 @@
 
 All tunings available in Accordo, exactly as they appear in the app. Notes are listed from the lowest string to the highest. The **♭ Flat** switch shifts any of them down one half step.
 
+## Create your custom tunings
+
+Create your custom tunings for bass and guitar and share them with anyone.
+
 ## Guitar — 6 strings
 
 ### Standards
@@ -101,7 +105,3 @@ All tunings available in Accordo, exactly as they appear in the app. Notes are l
 | Standard B | B E A D G C |
 | Standard A | A D G C F Bb |
 | Drop A | A E A D G C |
-
-## Missing a tuning?
-
-[Open an issue](https://github.com/Immolare/accordo/issues) with the name and the notes (lowest → highest) and it can be added.

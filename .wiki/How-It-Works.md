@@ -38,4 +38,4 @@ Sound mode uses **additive synthesis**: 6 harmonics with exponential decay appro
 
 ## Source
 
-The entire app is ~1000 lines of readable JavaScript: [app.js](https://github.com/Immolare/accordo/blob/main/app.js).
+The entire app is ~1500 lines of readable JavaScript: [app.js](https://github.com/Immolare/accordo/blob/main/app.js).
