@@ -411,6 +411,16 @@ function updateCustomLabel(noteSel, octSel, labelEl) {
   }
 }
 
+function uniqueCustomName(name, instrument) {
+  const names = state.customTunings
+    .filter(t => t.instrument === instrument)
+    .map(t => t.name);
+  if (!names.includes(name)) return name;
+  let i = 1;
+  while (names.includes(name + "_" + i)) i++;
+  return name + "_" + i;
+}
+
 function onCustomSave() {
   const rows = el.customStringsContainer.querySelectorAll(".custom-string-row");
   const notes = [];
@@ -425,8 +435,8 @@ function onCustomSave() {
     }
     notes.push(noteOctaveToMIDI(nv, ov));
   }
-  const name = el.customNameInput.value.trim() || "Custom " + groupLabel(notes.length);
   const instrument = state.instrument;
+  const name = uniqueCustomName(el.customNameInput.value.trim() || "Custom " + groupLabel(notes.length), instrument);
   const shareCode = generateShareCode(instrument, notes, name);
   const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
   const tuning = { id, name, instrument, notes, shareCode };
@@ -450,7 +460,7 @@ function onCustomImport() {
     return;
   }
   const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
-  const name = parsed.name || "Imported " + groupLabel(parsed.notes.length);
+  const name = uniqueCustomName(parsed.name || "Imported " + groupLabel(parsed.notes.length), parsed.instrument);
   const tuning = { id, name, instrument: parsed.instrument, notes: parsed.notes, shareCode: code };
   state.customTunings = state.customTunings.filter(t => t.id !== id);
   state.customTunings.push(tuning);
