@@ -23,7 +23,7 @@ Yes. After the first visit, a service worker caches the whole app. Install it on
 
 ## Can I create my own tuning?
 
-Yes — open the tuning selector and tap **Create a tuning**. You can set each string's note and octave, add extra strings (7/8-string guitar, 5/6-string bass), and share the result as a code or a link. See [Custom Tunings](Custom-Tunings).
+Yes — open the tuning selector and tap **Create a tuning**. You can set each string's note and octave, add extra strings (7/8-string guitar, 5/6-string bass), and share the result as a code or a link. See [Custom Tunings](Custom-Tunings.md).
 
 ## If I clear my browser data, do I lose my custom tunings?
 

@@ -6,11 +6,11 @@
 
 ## Pages
 
-- **[Getting Started](Getting-Started)** — how to tune your instrument step by step
-- **[Supported Tunings](Supported-Tunings)** — the full list of 50+ guitar and bass tunings
-- **[Custom Tunings](Custom-Tunings)** — create, edit, share and import your own tunings
-- **[How It Works](How-It-Works)** — pitch detection, accuracy and the tech behind Accordo
-- **[FAQ](FAQ)** — microphone issues, offline use, privacy and more
+- **[Getting Started](Getting-Started.md)** — how to tune your instrument step by step
+- **[Supported Tunings](Supported-Tunings.md)** — the full list of 50+ guitar and bass tunings
+- **[Custom Tunings](Custom-Tunings.md)** — create, edit, share and import your own tunings
+- **[How It Works](How-It-Works.md)** — pitch detection, accuracy and the tech behind Accordo
+- **[FAQ](FAQ.md)** — microphone issues, offline use, privacy and more
 
 ## At a glance
 
