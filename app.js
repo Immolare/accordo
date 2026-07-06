@@ -328,7 +328,9 @@ function renderCustomStringRows(rows) {
     div.className = "custom-string-row";
     const label = document.createElement("span");
     label.className = "custom-string-label";
-    const pos = rows.length - idx;
+    // Convention native (PRESETS, renderStrings) : grave -> aiguë,
+    // corde 1 = la plus grave. Rangée du haut = 1st.
+    const pos = idx + 1;
     label.textContent = ordinal(pos);
     label.setAttribute("data-pos", pos);
     div.appendChild(label);
@@ -411,6 +413,22 @@ function updateCustomLabel(noteSel, octSel, labelEl) {
   }
 }
 
+// Garantit l'unicité du nom d'un accordage personnalisé (par instrument,
+// insensible à la casse) : en cas de doublon, ajoute un suffixe _1, _2…
+function uniqueTuningName(name, instrument) {
+  const taken = new Set(
+    state.customTunings
+      .filter(t => t.instrument === instrument)
+      .map(t => t.name.trim().toLowerCase())
+  );
+  if (!taken.has(name.trim().toLowerCase())) return name;
+  const base = name.replace(/_\d+$/, "");
+  for (let i = 1; ; i++) {
+    const candidate = `${base}_${i}`;
+    if (!taken.has(candidate.toLowerCase())) return candidate;
+  }
+}
+
 function onCustomSave() {
   const rows = el.customStringsContainer.querySelectorAll(".custom-string-row");
   const notes = [];
@@ -425,8 +443,9 @@ function onCustomSave() {
     }
     notes.push(noteOctaveToMIDI(nv, ov));
   }
-  const name = el.customNameInput.value.trim() || "Custom " + groupLabel(notes.length);
   const instrument = state.instrument;
+  const name = uniqueTuningName(
+    el.customNameInput.value.trim() || "Custom " + groupLabel(notes.length), instrument);
   const shareCode = generateShareCode(instrument, notes, name);
   const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
   const tuning = { id, name, instrument, notes, shareCode };
@@ -450,8 +469,11 @@ function onCustomImport() {
     return;
   }
   const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
-  const name = parsed.name || "Imported " + groupLabel(parsed.notes.length);
-  const tuning = { id, name, instrument: parsed.instrument, notes: parsed.notes, shareCode: code };
+  const name = uniqueTuningName(
+    parsed.name || "Imported " + groupLabel(parsed.notes.length), parsed.instrument);
+  // Regénère le code : le nom a pu être suffixé pour rester unique
+  const shareCode = generateShareCode(parsed.instrument, parsed.notes, name);
+  const tuning = { id, name, instrument: parsed.instrument, notes: parsed.notes, shareCode };
   state.customTunings = state.customTunings.filter(t => t.id !== id);
   state.customTunings.push(tuning);
   saveCustomTunings();
