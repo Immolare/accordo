@@ -247,6 +247,8 @@ button { font-family: inherit; color: inherit; background: none; border: none; c
 .sheet-close {
   width: 32px; height: 32px; border-radius: 50%;
   background: rgba(255,255,255,0.08); color: var(--muted); font-size: 14px;
+  padding: 0; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
 }
 .sheet-search { padding: 4px 14px 10px; }
 .sheet-search input {
@@ -280,7 +282,7 @@ button { font-family: inherit; color: inherit; background: none; border: none; c
 .custom-preset-del {
   width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
   background: rgba(248, 113, 113, 0.15); border: 1px solid rgba(248, 113, 113, 0.35);
-  color: var(--warn); font-size: 16px; font-weight: 700;
+  color: var(--warn); padding: 0;
   display: flex; align-items: center; justify-content: center;
   margin-left: 6px;
 }
@@ -288,11 +290,13 @@ button { font-family: inherit; color: inherit; background: none; border: none; c
 .custom-preset-copy {
   width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
   background: rgba(96, 165, 250, 0.12); border: 1px solid rgba(96, 165, 250, 0.35);
-  color: #93c5fd; font-size: 14px; font-weight: 700;
+  color: #93c5fd; padding: 0;
   display: flex; align-items: center; justify-content: center;
   margin-left: 6px;
 }
 .custom-preset-copy:active { background: rgba(96, 165, 250, 0.3); }
+/* Icônes SVG des boutons ronds : bloc sans interligne = centrage parfait */
+.custom-preset-del svg, .custom-preset-copy svg, .custom-row-remove svg { display: block; }
 
 /* ---------- octave subscript in note display ---------- */
 .note-name sub, .s-note sub { font-size: 0.45em; vertical-align: sub; line-height: 1; }
@@ -372,7 +376,7 @@ button { font-family: inherit; color: inherit; background: none; border: none; c
 .custom-row-remove {
   width: 28px; height: 28px; border-radius: 50%;
   background: rgba(248, 113, 113, 0.15); border: 1px solid rgba(248, 113, 113, 0.35);
-  color: var(--warn); font-size: 16px; font-weight: 700;
+  color: var(--warn); padding: 0;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
 }

@@ -238,6 +238,13 @@ function centsOff(freq, target) { return 1200 * Math.log2(freq / target); }
 
 /* ---------------- Accordages personnalises ---------------- */
 
+// Icônes SVG inline des boutons (couleur héritée via currentColor,
+// centrage géométrique fiable contrairement aux glyphes × / emojis)
+const ICONS = {
+  cross: '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  copy: '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>',
+};
+
 function generateShareCode(instrument, notes, name) {
   const instChar = instrument === "guitar" ? "G" : "B";
   const noteStr = notes.map(m => {
@@ -374,7 +381,7 @@ function renderCustomStringRows(rows) {
     if (row.added) {
       const rmBtn = document.createElement("button");
       rmBtn.className = "custom-row-remove";
-      rmBtn.textContent = "\u00d7";
+      rmBtn.innerHTML = ICONS.cross;
       rmBtn.setAttribute("aria-label", "Remove");
       rmBtn.addEventListener("click", () => {
         rows.splice(idx, 1);
@@ -878,7 +885,7 @@ function renderPresetSheet(filter = "") {
     });
     const copyBtn = document.createElement("button");
     copyBtn.className = "custom-preset-copy";
-    copyBtn.textContent = "\uD83D\uDCCB";
+    copyBtn.innerHTML = ICONS.copy;
     copyBtn.setAttribute("aria-label", t("customCopy"));
     copyBtn.addEventListener("click", e => {
       e.stopPropagation();
@@ -889,7 +896,7 @@ function renderPresetSheet(filter = "") {
     item.appendChild(copyBtn);
     const delBtn = document.createElement("button");
     delBtn.className = "custom-preset-del";
-    delBtn.textContent = "\u00d7";
+    delBtn.innerHTML = ICONS.cross;
     delBtn.setAttribute("aria-label", "Delete");
     delBtn.addEventListener("click", e => {
       e.stopPropagation();
