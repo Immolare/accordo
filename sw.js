@@ -1,11 +1,17 @@
 /* Accordo — service worker : cache hors-ligne minimal */
-const CACHE = "accordo-v15";
+const CACHE = "accordo-v17";
 const ASSETS = [
   "./",
   "./index.html",
   "./style.css",
-  "./i18n.js",
-  "./app.js",
+  "./js/i18n.js",
+  "./js/music.js",
+  "./js/share-code.js",
+  "./js/settings-store.js",
+  "./js/audio-engine.js",
+  "./js/ui.js",
+  "./js/custom-tunings.js",
+  "./js/app.js",
   "./manifest.webmanifest",
   "./icon.svg",
   "./legal.html",

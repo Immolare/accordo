@@ -4,7 +4,7 @@ All tunings available in Accordo, exactly as they appear in the app. Notes are l
 
 ## Create your custom tunings
 
-Create your custom tunings for bass and guitar and share them with anyone.
+Don't see your tuning? Create your own for guitar or bass and share it with anyone — see **[Custom Tunings](Custom-Tunings)**.
 
 ## Guitar — 6 strings
 
