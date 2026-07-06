@@ -256,6 +256,37 @@ function generateShareCode(instrument, notes, name) {
   return instChar + notes.length + noteStr + ":" + encodedName;
 }
 
+// Lien de partage canonique. Le code est entièrement encodé : les dièses
+// (#) et les % du nom casseraient le fragment d'URL sinon.
+const SHARE_BASE = "https://accordo.tools/";
+function tuningShareUrl(code) {
+  return SHARE_BASE + "#" + encodeURIComponent(code);
+}
+
+// Accepte indifféremment un code brut, un code encodé ou un lien complet.
+function extractShareCode(text) {
+  let s = String(text || "").trim();
+  const h = s.indexOf("#");
+  if (h !== -1 && /^https?:\/\/|^accordo\.tools/i.test(s)) s = s.slice(h + 1);
+  // Variante décodée essayée en premier : un code encodé pour URL peut
+  // aussi parser « par accident » en perdant le nom (%3A non reconnu)
+  try {
+    const dec = decodeURIComponent(s);
+    if (dec !== s && parseShareCode(dec)) return dec;
+  } catch (_) {}
+  return s;
+}
+
+// Version lisible d'un code pour l'affichage dans l'appli (nom décodé,
+// ex. « :Métal » au lieu de « :M%C3%A9tal »). Reste importable telle
+// quelle ; le partage web passe lui par tuningShareUrl (lien encodé).
+function readableShareCode(code) {
+  const sep = code.indexOf(":");
+  if (sep === -1) return code;
+  try { return code.slice(0, sep + 1) + decodeURIComponent(code.slice(sep + 1)); }
+  catch (_) { return code; }
+}
+
 function parseShareCode(code) {
   if (!code || typeof code !== "string") return null;
   let i = 0;
@@ -286,7 +317,11 @@ function parseShareCode(code) {
   let name = "";
   if (i < code.length && code[i] === ":") {
     i++;
-    name = decodeURIComponent(code.slice(i));
+    // decodeURIComponent lève sur un % malformé (lien tronqué…) : on
+    // retombe sur le texte brut plutôt que de faire échouer tout l'import
+    const rawName = code.slice(i);
+    try { name = decodeURIComponent(rawName); } catch (_) { name = rawName; }
+    name = name.slice(0, 80);
   }
   return { instrument, notes, name };
 }
@@ -314,8 +349,16 @@ function renderCustomSheet(editTuning) {
   });
   renderCustomStringRows(rows);
   el.customNameInput.value = editTuning ? editTuning.name : "";
-  el.customShareDisplay.hidden = true;
-  el.customShareCodeInput.value = "";
+  // En édition, le code de l'accordage est affiché d'emblée
+  if (editTuning && editTuning.shareCode) {
+    el.customShareCodeInput.value = readableShareCode(editTuning.shareCode);
+    el.customShareCodeInput.dataset.code = editTuning.shareCode;
+    el.customShareDisplay.hidden = false;
+  } else {
+    el.customShareDisplay.hidden = true;
+    el.customShareCodeInput.value = "";
+    delete el.customShareCodeInput.dataset.code;
+  }
 }
 
 function getCustomRows() {
@@ -339,14 +382,27 @@ function getCustomRows() {
 function renderCustomStringRows(rows) {
   const c = el.customStringsContainer;
   c.innerHTML = "";
+  // Seules les cordes excédentaires (au-delà du minimum de l'instrument :
+  // 6 pour guitare, 4 pour basse) sont supprimables — en priorité celles
+  // ajoutées dans la session, sinon les plus graves (haut de liste)
+  const minStrings = state.instrument === "bass" ? 4 : 6;
+  let removableLeft = Math.max(0, rows.length - minStrings);
+  const removable = rows.map(() => false);
+  rows.forEach((row, i) => {
+    if (removableLeft > 0 && row.added) { removable[i] = true; removableLeft--; }
+  });
+  rows.forEach((row, i) => {
+    if (removableLeft > 0 && !removable[i]) { removable[i] = true; removableLeft--; }
+  });
   rows.forEach((row, idx) => {
     const div = document.createElement("div");
     div.className = "custom-string-row";
     const label = document.createElement("span");
     label.className = "custom-string-label";
-    // Convention native (PRESETS, renderStrings) : grave -> aiguë,
-    // corde 1 = la plus grave. Rangée du haut = 1st.
-    const pos = idx + 1;
+    // Données toujours grave -> aiguë (haut -> bas), mais numérotation
+    // guitare standard : corde 1 = la plus aiguë (une corde grave ajoutée
+    // sur une 6 cordes devient la 7e, comme sur une vraie 7 cordes)
+    const pos = rows.length - idx;
     label.textContent = ordinal(pos);
     label.setAttribute("data-pos", pos);
     div.appendChild(label);
@@ -387,7 +443,7 @@ function renderCustomStringRows(rows) {
     octSel.addEventListener("change", () => updateCustomLabel(noteSel, octSel, label));
     div.appendChild(octSel);
 
-    if (row.added) {
+    if (removable[idx]) {
       const rmBtn = document.createElement("button");
       rmBtn.className = "custom-row-remove";
       rmBtn.innerHTML = ICONS.cross;
@@ -484,13 +540,16 @@ function onCustomSave() {
   state.presetIndex = -1;
   onTuningChanged();
   saveSettings();
-  el.customShareCodeInput.value = shareCode;
+  // Affichage lisible dans l'appli ; le code exact est gardé en dataset
+  // pour que « Copier » produise le lien web complet
+  el.customShareCodeInput.value = readableShareCode(shareCode);
+  el.customShareCodeInput.dataset.code = shareCode;
   el.customShareDisplay.hidden = false;
   showToast(t("customSaved"));
 }
 
 function onCustomImport() {
-  const code = el.customImportInput.value.trim();
+  const code = extractShareCode(el.customImportInput.value);
   if (!code) return;
   const parsed = parseShareCode(code);
   if (!parsed) {
@@ -515,6 +574,38 @@ function onCustomImport() {
     showToast("Imported for " + parsed.instrument + " — switch instrument to see it");
   }
   el.customImportInput.value = "";
+}
+
+// Deep linking : https://accordo.tools/#{code} — importe (ou réutilise)
+// l'accordage du fragment d'URL, le sélectionne et nettoie l'URL.
+function importFromHash() {
+  const raw = location.hash.slice(1);
+  if (!raw) return false;
+  const code = extractShareCode(raw);
+  const parsed = parseShareCode(code);
+  if (!parsed) return false;
+  // URL nettoyée immédiatement : pas de ré-import au refresh/partage d'onglet
+  try { history.replaceState(null, "", location.pathname + location.search); } catch (_) {}
+  state.instrument = parsed.instrument;
+  // Mêmes notes déjà enregistrées pour cet instrument ? On réutilise
+  // (cliquer deux fois le même lien ne crée pas de doublon).
+  let tun = state.customTunings.find(x =>
+    x.instrument === parsed.instrument &&
+    x.notes.length === parsed.notes.length &&
+    x.notes.every((n, i) => n === parsed.notes[i]));
+  if (!tun) {
+    const name = uniqueTuningName(
+      parsed.name || "Imported " + groupLabel(parsed.notes.length), parsed.instrument);
+    const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+    tun = { id, name, instrument: parsed.instrument, notes: parsed.notes,
+      shareCode: generateShareCode(parsed.instrument, parsed.notes, name) };
+    state.customTunings.push(tun);
+    saveCustomTunings();
+  }
+  state.customPreset = { _id: tun.id, name: tun.name, group: tun.notes.length, notes: tun.notes };
+  state.presetIndex = -1;
+  saveSettings();
+  return true;
 }
 
 /* ---------------- Audio ---------------- */
@@ -818,7 +909,7 @@ function renderStrings() {
       + (i === state.selectedString ? " selected" : "")
       + (state.tuned[i] ? " tuned" : "");
     btn.setAttribute("aria-label",
-      `${t("stringN")} ${i + 1} — ${midiLabel(m)}${state.tuned[i] ? " — " + t("inTune") : ""}`);
+      `${t("stringN")} ${midis.length - i} — ${midiLabel(m)}${state.tuned[i] ? " — " + t("inTune") : ""}`);
     if (i === state.selectedString) btn.setAttribute("aria-current", "true");
     btn.innerHTML = `<span class="s-note" aria-hidden="true">${midiDisplay(m)}</span>`;
     btn.addEventListener("click", () => {
@@ -923,7 +1014,7 @@ function renderPresetSheet(filter = "") {
     copyBtn.addEventListener("click", e => {
       e.stopPropagation();
       const code = generateShareCode(custom.instrument, custom.notes, custom.name);
-      copyToClipboard(code).catch(() => {});
+      copyToClipboard(tuningShareUrl(code)).catch(() => {});
       showToast(t("customCopied"));
     });
     item.appendChild(copyBtn);
@@ -1351,6 +1442,15 @@ function bindEvents() {
   el.customImportInput.addEventListener("keydown", e => {
     if (e.key === "Enter") onCustomImport();
   });
+  // Un lien ou code encodé collé est affiché sous forme lisible (le lien
+  // n'existe que sur le web, dans l'appli on ne montre que le code)
+  el.customImportInput.addEventListener("input", () => {
+    const v = el.customImportInput.value;
+    const code = extractShareCode(v);
+    if (!parseShareCode(code)) return;
+    const readable = readableShareCode(code);
+    if (readable !== v) el.customImportInput.value = readable;
+  });
 
   // Custom sheet
   el.customSheetClose.addEventListener("click", () => closeSheet(el.customSheet));
@@ -1370,7 +1470,8 @@ function bindEvents() {
   });
   el.customShareCopy.addEventListener("click", () => {
     el.customShareCodeInput.select();
-      copyToClipboard(el.customShareCodeInput.value).catch(() => {});
+    const code = el.customShareCodeInput.dataset.code || el.customShareCodeInput.value;
+    copyToClipboard(tuningShareUrl(code)).catch(() => {});
     showToast(t("customCopied"));
   });
 
@@ -1425,12 +1526,22 @@ function bindEvents() {
 
 loadCustomTunings();
 loadSettings();
+const openedFromLink = importFromHash();
 buildGauge();
 bindEvents();
 applyLang();
 renderStrings();
 renderPresetLabel();
 renderControls();
+if (openedFromLink) showToast(t("customSaved"));
+
+// Lien de partage cliqué alors que l'app est déjà ouverte
+window.addEventListener("hashchange", () => {
+  if (importFromHash()) {
+    onTuningChanged();
+    showToast(t("customSaved"));
+  }
+});
 
 // PWA : mise en cache hors-ligne (uniquement si servi via http/https)
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
