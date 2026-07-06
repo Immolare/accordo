@@ -295,8 +295,17 @@ button { font-family: inherit; color: inherit; background: none; border: none; c
   margin-left: 6px;
 }
 .custom-preset-copy:active { background: rgba(96, 165, 250, 0.3); }
+.custom-preset-edit {
+  width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+  background: rgba(52, 211, 153, 0.12); border: 1px solid rgba(52, 211, 153, 0.35);
+  color: var(--accent); padding: 0;
+  display: flex; align-items: center; justify-content: center;
+  margin-left: 6px;
+}
+.custom-preset-edit:active { background: rgba(52, 211, 153, 0.25); }
 /* Icônes SVG des boutons ronds : bloc sans interligne = centrage parfait */
-.custom-preset-del svg, .custom-preset-copy svg, .custom-row-remove svg { display: block; }
+.custom-preset-del svg, .custom-preset-copy svg, .custom-preset-edit svg,
+.custom-row-remove svg { display: block; }
 
 /* ---------- octave subscript in note display ---------- */
 .note-name sub, .s-note sub { font-size: 0.45em; vertical-align: sub; line-height: 1; }

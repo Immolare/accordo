@@ -243,6 +243,7 @@ function centsOff(freq, target) { return 1200 * Math.log2(freq / target); }
 const ICONS = {
   cross: '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
   copy: '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>',
+  pencil: '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2.8 2.8 0 0 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></svg>',
 };
 
 function generateShareCode(instrument, notes, name) {
@@ -290,13 +291,21 @@ function parseShareCode(code) {
   return { instrument, notes, name };
 }
 
-function renderCustomSheet() {
-  const inst = state.instrument;
-  let src = state.customPreset;
+// Accordage en cours d'édition dans la feuille custom (null = création).
+// Renseigné aussi après une création : re-sauver modifie au lieu de dupliquer.
+let editingTuningId = null;
+
+function renderCustomSheet(editTuning) {
+  editingTuningId = editTuning ? editTuning.id : null;
+  let src = editTuning;
   if (!src) {
-    const presets = PRESETS[inst];
-    const idx = (state.presetIndex >= 0 && state.presetIndex < presets.length) ? state.presetIndex : 0;
-    src = presets[idx];
+    const inst = state.instrument;
+    src = state.customPreset;
+    if (!src) {
+      const presets = PRESETS[inst];
+      const idx = (state.presetIndex >= 0 && state.presetIndex < presets.length) ? state.presetIndex : 0;
+      src = presets[idx];
+    }
   }
   if (!src || !src.notes) return;
   const rows = src.notes.map(m => {
@@ -304,7 +313,7 @@ function renderCustomSheet() {
     return { noteIdx, oct, added: false };
   });
   renderCustomStringRows(rows);
-  el.customNameInput.value = "";
+  el.customNameInput.value = editTuning ? editTuning.name : "";
   el.customShareDisplay.hidden = true;
   el.customShareCodeInput.value = "";
 }
@@ -422,10 +431,11 @@ function updateCustomLabel(noteSel, octSel, labelEl) {
 
 // Garantit l'unicité du nom d'un accordage personnalisé (par instrument,
 // insensible à la casse) : en cas de doublon, ajoute un suffixe _1, _2…
-function uniqueTuningName(name, instrument) {
+// excludeId : accordage à ignorer (celui qu'on est en train d'éditer).
+function uniqueTuningName(name, instrument, excludeId) {
   const taken = new Set(
     state.customTunings
-      .filter(t => t.instrument === instrument)
+      .filter(t => t.instrument === instrument && t.id !== excludeId)
       .map(t => t.name.trim().toLowerCase())
   );
   if (!taken.has(name.trim().toLowerCase())) return name;
@@ -451,17 +461,29 @@ function onCustomSave() {
     notes.push(noteOctaveToMIDI(nv, ov));
   }
   const instrument = state.instrument;
+  const existing = editingTuningId
+    ? state.customTunings.find(t => t.id === editingTuningId) : null;
   const name = uniqueTuningName(
-    el.customNameInput.value.trim() || "Custom " + groupLabel(notes.length), instrument);
+    el.customNameInput.value.trim() || "Custom " + groupLabel(notes.length),
+    instrument, existing ? existing.id : null);
+  // Le code de partage encode instrument + notes + nom : toujours regénéré
   const shareCode = generateShareCode(instrument, notes, name);
-  const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
-  const tuning = { id, name, instrument, notes, shareCode };
-  state.customTunings = state.customTunings.filter(t => t.id !== id);
-  state.customTunings.push(tuning);
+  const id = existing ? existing.id
+    : Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  if (existing) {
+    // Édition : mise à jour en place (conserve l'id et la position)
+    existing.name = name;
+    existing.notes = notes;
+    existing.shareCode = shareCode;
+  } else {
+    state.customTunings.push({ id, name, instrument, notes, shareCode });
+    editingTuningId = id; // re-sauver = modifier, pas dupliquer
+  }
   saveCustomTunings();
   state.customPreset = { _id: id, name, group: notes.length, notes };
   state.presetIndex = -1;
   onTuningChanged();
+  saveSettings();
   el.customShareCodeInput.value = shareCode;
   el.customShareDisplay.hidden = false;
   showToast(t("customSaved"));
@@ -883,6 +905,17 @@ function renderPresetSheet(filter = "") {
       closeSheet(el.presetSheet);
       saveSettings();
     });
+    const editBtn = document.createElement("button");
+    editBtn.className = "custom-preset-edit";
+    editBtn.innerHTML = ICONS.pencil;
+    editBtn.setAttribute("aria-label", "Edit");
+    editBtn.addEventListener("click", e => {
+      e.stopPropagation();
+      closeSheet(el.presetSheet);
+      renderCustomSheet(custom);
+      openSheet(el.customSheet, el.createCustomBtn, el.customNameInput);
+    });
+    item.appendChild(editBtn);
     const copyBtn = document.createElement("button");
     copyBtn.className = "custom-preset-copy";
     copyBtn.innerHTML = ICONS.copy;
