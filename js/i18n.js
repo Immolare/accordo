@@ -36,6 +36,10 @@ const I18N = {
     customImport: "Importer", customAddLow: "+ Ajouter corde grave",
     customAddHigh: "+ Ajouter corde aigu\u00eb", customShare: "Code\u00a0:",
     customCopy: "Copier", customCopied: "Copi\u00e9\u00a0!",
+    customImported: "Import\u00e9", customDefault: "Personnalis\u00e9",
+    invalidShareCode: "Code de partage invalide",
+    importedForOther: "Import\u00e9 pour %s \u2014 changez d'instrument pour le voir",
+    selectAllNotes: "Veuillez s\u00e9lectionner une note et une octave pour toutes les cordes",
   },
   en: {
     tagline: "Guitar & bass tuner — simple and accurate.", start: "Start",
@@ -61,6 +65,10 @@ const I18N = {
     customImport: "Import", customAddLow: "+ Add low string",
     customAddHigh: "+ Add high string", customShare: "Code:",
     customCopy: "Copy", customCopied: "Copied!",
+    customImported: "Imported", customDefault: "Custom",
+    invalidShareCode: "Invalid share code",
+    importedForOther: "Imported for %s \u2014 switch instrument to see it",
+    selectAllNotes: "Please select note and octave for all strings",
   },
   es: {
     tagline: "Afinador de guitarra y bajo — simple y preciso.", start: "Comenzar",
@@ -86,6 +94,10 @@ const I18N = {
     customImport: "Importar", customAddLow: "+ A\u00f1adir cuerda grave",
     customAddHigh: "+ A\u00f1adir cuerda aguda", customShare: "C\u00f3digo:",
     customCopy: "Copiar", customCopied: "\u00a1Copiado!",
+    customImported: "Importado", customDefault: "Personalizada",
+    invalidShareCode: "C\u00f3digo de compartir inv\u00e1lido",
+    importedForOther: "Importado para %s \u2014 cambie de instrumento para verlo",
+    selectAllNotes: "Seleccione nota y octava para todas las cuerdas",
   },
   it: {
     tagline: "Accordatore per chitarra e basso — semplice e preciso.", start: "Inizia",
@@ -111,6 +123,10 @@ const I18N = {
     customImport: "Importa", customAddLow: "+ Aggiungi corda grave",
     customAddHigh: "+ Aggiungi corda acuta", customShare: "Codice:",
     customCopy: "Copia", customCopied: "Copiato!",
+    customImported: "Importato", customDefault: "Personalizzata",
+    invalidShareCode: "Codice di condivisione non valido",
+    importedForOther: "Importato per %s \u2014 cambia strumento per vederlo",
+    selectAllNotes: "Seleziona nota e ottava per tutte le corde",
   },
   de: {
     tagline: "Gitarren- & Bass-Stimmgerät — einfach und präzise.", start: "Starten",
@@ -136,6 +152,10 @@ const I18N = {
     customImport: "Importieren", customAddLow: "+ Tiefe Saite hinzuf\u00fcgen",
     customAddHigh: "+ Hohe Saite hinzuf\u00fcgen", customShare: "Code:",
     customCopy: "Kopieren", customCopied: "Kopiert!",
+    customImported: "Importiert", customDefault: "Benutzerdefiniert",
+    invalidShareCode: "Ung\u00fcltiger Code",
+    importedForOther: "F\u00fcr %s importiert \u2014 wechseln Sie das Instrument",
+    selectAllNotes: "Bitte Note und Oktave f\u00fcr alle Saiten ausw\u00e4hlen",
   },
   pt: {
     tagline: "Afinador de guitarra e baixo — simples e preciso.", start: "Começar",
@@ -161,6 +181,10 @@ const I18N = {
     customImport: "Importar", customAddLow: "+ Adicionar corda grave",
     customAddHigh: "+ Adicionar corda aguda", customShare: "C\u00f3digo:",
     customCopy: "Copiar", customCopied: "Copiado!",
+    customImported: "Importado", customDefault: "Personalizada",
+    invalidShareCode: "C\u00f3digo de compartilhamento inv\u00e1lido",
+    importedForOther: "Importado para %s \u2014 mude de instrumento para v\u00ea-lo",
+    selectAllNotes: "Selecione nota e oitava para todas as cordas",
   },
   zh: {
     tagline: "简单精准的吉他与贝斯调音器。", start: "开始",
@@ -186,6 +210,10 @@ const I18N = {
     customImport: "导入", customAddLow: "+添加低弦",
     customAddHigh: "+添加高弦", customShare: "代码：",
     customCopy: "复制", customCopied: "已复制！",
+    customImported: "导入的", customDefault: "自定义",
+    invalidShareCode: "无效的分享代码",
+    importedForOther: "已为%s导入 — 切换乐器以查看",
+    selectAllNotes: "请为所有琴弦选择音符和八度",
   },
   ja: {
     tagline: "シンプルで正確なギター＆ベースチューナー。", start: "スタート",
@@ -211,6 +239,10 @@ const I18N = {
     customImport: "インポート", customAddLow: "+低弦を追加",
     customAddHigh: "+高弦を追加", customShare: "コード：",
     customCopy: "コピー", customCopied: "コピー完了！",
+    customImported: "インポート済み", customDefault: "カスタム",
+    invalidShareCode: "無効な共有コードです",
+    importedForOther: "%s用にインポートしました — 楽器を切り替えてください",
+    selectAllNotes: "すべての弦の音名とオクターブを選択してください",
   },
   ko: {
     tagline: "간단하고 정확한 기타·베이스 튜너.", start: "시작",
@@ -236,6 +268,10 @@ const I18N = {
     customImport: "가져오기", customAddLow: "+저음현 추가",
     customAddHigh: "+고음현 추가", customShare: "코드:",
     customCopy: "복사", customCopied: "복사됨!",
+    customImported: "가져온", customDefault: "사용자 설정",
+    invalidShareCode: "잘못된 공유 코드입니다",
+    importedForOther: "%s용으로 가져옴 — 악기를 전환하여 확인하세요",
+    selectAllNotes: "모든 현의 음표와 옥타브를 선택하세요",
   },
 };
 

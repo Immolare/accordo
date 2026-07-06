@@ -183,7 +183,7 @@ class CustomTunings {
     const state = app.state;
     const rows = this.getRows();
     if (rows.some(r => r.noteIdx === null || r.oct === null)) {
-      app.ui.showToast("Please select note and octave for all strings");
+      app.ui.showToast(app.t("selectAllNotes"));
       return;
     }
     const notes = rows.map(r => Music.noteOctaveToMIDI(r.noteIdx, r.oct));
@@ -191,7 +191,7 @@ class CustomTunings {
     const existing = this.editingId
       ? state.customTunings.find(t => t.id === this.editingId) : null;
     const name = this.uniqueName(
-      el.customNameInput.value.trim() || "Custom " + app.groupLabel(notes.length),
+      el.customNameInput.value.trim() || app.t("customDefault") + " " + app.groupLabel(notes.length),
       instrument, existing ? existing.id : null);
     // Le code de partage encode instrument + notes + nom : toujours regénéré
     const shareCode = ShareCode.generate(instrument, notes, name);
@@ -224,7 +224,7 @@ class CustomTunings {
     if (!code) return;
     const parsed = ShareCode.parse(code);
     if (!parsed) {
-      app.ui.showToast("Invalid share code");
+      app.ui.showToast(app.t("invalidShareCode"));
       return;
     }
     const tuning = this.addImported(parsed);
@@ -233,7 +233,7 @@ class CustomTunings {
       app.onTuningChanged();
       app.ui.closeSheet(el.presetSheet);
     } else {
-      app.ui.showToast("Imported for " + parsed.instrument + " — switch instrument to see it");
+      app.ui.showToast(app.t("importedForOther").replace("%s", app.t(parsed.instrument)));
     }
     el.customImportInput.value = "";
   }
@@ -243,7 +243,7 @@ class CustomTunings {
   addImported(parsed) {
     const { app } = this;
     const name = this.uniqueName(
-      parsed.name || "Imported " + app.groupLabel(parsed.notes.length), parsed.instrument);
+      parsed.name || app.t("customImported") + " " + app.groupLabel(parsed.notes.length), parsed.instrument);
     const tuning = {
       id: CustomTunings.newId(),
       name,
