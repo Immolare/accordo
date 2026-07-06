@@ -1,5 +1,5 @@
 /* Accordo — service worker : cache hors-ligne minimal */
-const CACHE = "accordo-v14";
+const CACHE = "accordo-v15";
 const ASSETS = [
   "./",
   "./index.html",
