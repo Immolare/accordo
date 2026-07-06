@@ -21,6 +21,14 @@ Yes. After the first visit, a service worker caches the whole app. Install it on
 
 **No.** The microphone signal is analyzed in real time inside your browser and is never recorded, stored or transmitted. Accordo has no server-side code, no cookies, no analytics, no ads.
 
+## Can I create my own tuning?
+
+Yes — open the tuning selector and tap **Create a tuning**. You can set each string's note and octave, add extra strings (7/8-string guitar, 5/6-string bass), and share the result as a code or a link. See [Custom Tunings](Custom-Tunings).
+
+## If I clear my browser data, do I lose my custom tunings?
+
+Yes — they live in your browser's local storage only (that's what keeps Accordo server-free). Keep the share codes of the tunings you care about: re-importing them takes one paste.
+
 ## Can I use a different reference pitch than 440 Hz?
 
 Yes — use the **− / +** buttons in the top bar. The reference A4 can be set anywhere from **415 Hz** (baroque) to **465 Hz**, in 1 Hz steps.

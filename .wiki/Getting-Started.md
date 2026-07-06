@@ -12,6 +12,7 @@ Go to **[accordo.tools](https://accordo.tools)** and tap **Start**. Your browser
 
 - Choose **Guitar** or **Bass** at the top.
 - Tap the tuning selector (e.g. *Standard E · 6 strings*) to browse 50+ tunings. You can search by name (`drop c`, `open g`) or by notes.
+- Don't see yours? [Create a custom tuning](Custom-Tunings) and share it with a link.
 - Use the **♭ Flat** button to shift any tuning down a half step instantly.
 
 ## 3. Tune each string

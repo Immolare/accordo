@@ -8,6 +8,7 @@
 
 - **[Getting Started](Getting-Started)** — how to tune your instrument step by step
 - **[Supported Tunings](Supported-Tunings)** — the full list of 50+ guitar and bass tunings
+- **[Custom Tunings](Custom-Tunings)** — create, edit, share and import your own tunings
 - **[How It Works](How-It-Works)** — pitch detection, accuracy and the tech behind Accordo
 - **[FAQ](FAQ)** — microphone issues, offline use, privacy and more
 
@@ -17,7 +18,7 @@
 |---|---|
 | 🎯 Accuracy | YIN pitch detection, well under 1 cent of error |
 | 🎸 Instruments | 6/7/8-string guitars, 4/5/6-string basses |
-| 🎼 Tunings | 50+ (Standards, Drops, Opens, DADGAD, All Fourths…) |
+| 🎼 Tunings | 50+ (Standards, Drops, Opens, DADGAD, All Fourths…) + custom tunings with shareable links |
 | 🎚 Calibration | A4 adjustable from 415 to 465 Hz |
 | 🌍 Languages | English, Français, Español, Italiano, Deutsch, Português, 中文, 日本語, 한국어 |
 | 📱 Platform | PWA — installable, works fully offline |

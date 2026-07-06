@@ -1,7 +1,8 @@
 /* ============================================================
-   Accordo — Configuration des langues (i18n)
-   Dictionnaires LANGS / I18N + détection de la langue navigateur.
-   Chargé avant app.js (globals : LANGS, I18N, CJK, detectLang).
+   Accordo — Internationalisation
+   Dictionnaires LANGS / I18N / CJK + classe I18n (traduction,
+   libellés dépendant de la langue, détection navigateur).
+   Chargé en premier (globals : LANGS, I18N, CJK, I18n).
    ============================================================ */
 "use strict";
 
@@ -241,12 +242,35 @@ const I18N = {
 // Langues sans espace entre le nombre et le mot "cordes" (ex. 6弦)
 const CJK = ["zh", "ja", "ko"];
 
-// Détecte la langue préférée du navigateur parmi celles disponibles
-function detectLang() {
-  const cands = navigator.languages || [navigator.language || "en"];
-  for (const c of cands) {
-    const p = String(c).slice(0, 2).toLowerCase();
-    if (I18N[p]) return p;
+// Service de traduction : lit la langue courante dans l'état de l'app
+class I18n {
+  constructor(app) {
+    this.app = app;
   }
-  return "en";
+
+  // Clé -> texte dans la langue courante (repli anglais puis clé brute)
+  t(key) {
+    const lang = this.app.state.lang;
+    return (I18N[lang] && I18N[lang][key]) || I18N.en[key] || key;
+  }
+
+  // « 6 cordes » / « 6弦 » selon la langue
+  groupLabel(n) {
+    return CJK.includes(this.app.state.lang) ? `${n}${this.t("strings")}` : `${n} ${this.t("strings")}`;
+  }
+
+  // Nom d'un preset (traduit si nameKey, sinon nom brut)
+  presetName(p) {
+    return p.nameKey ? this.t(p.nameKey) : p.name;
+  }
+
+  // Détecte la langue préférée du navigateur parmi celles disponibles
+  static detect() {
+    const cands = navigator.languages || [navigator.language || "en"];
+    for (const c of cands) {
+      const p = String(c).slice(0, 2).toLowerCase();
+      if (I18N[p]) return p;
+    }
+    return "en";
+  }
 }

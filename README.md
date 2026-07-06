@@ -11,7 +11,7 @@ Accordo is a lightweight Progressive Web App (PWA) built for beginners and pros 
 - 🎯 **Accurate pitch detection** — YIN algorithm with parabolic interpolation, accurate to well under 1 cent, from B0 (~23 Hz, 8-string flat tunings) up to the highest frets
 - 🎸 **Guitar & bass** — 6/7/8-string guitars, 4/5/6-string basses
 - 🎼 **50+ tunings** — every widely used tuning: Standards (E to F#), Drops (D to D on 8-string), Opens (G, A, C, D, D minor, E), DADGAD, All Fourths, high-C bass and more
-- ✏️ **Custom tunings** — create and save your own tunings with a visual note/octave editor, share them via copy-paste codes, and import tunings from other players — all stored in your browser, no database needed
+- ✏️ **Custom tunings** — create, edit and save your own tunings with a visual note/octave editor, then share them as compact codes or one-tap links (`accordo.tools/#…`) that import and select the tuning automatically — all stored in your browser, no database needed
 - 🔍 **Smart search** — relevance-ranked search that understands note names (`standard e` won't match Standard Eb)
 - ♭ **Flat switch** — instantly shift any tuning down a half step
 - 🔊 **Sound mode** — play realistic reference tones and tune by ear (works even without microphone access)
@@ -28,7 +28,7 @@ Accordo is a lightweight Progressive Web App (PWA) built for beginners and pros 
 - Web Audio API (`getUserMedia` + `AnalyserNode`) for capture, YIN autocorrelation for pitch detection
 - Additive synthesis (6 harmonics with exponential decay) for plucked-string reference tones
 - Service worker for offline support
-- Preferences stored in `localStorage` only
+- Preferences and custom tunings stored in `localStorage` only — sharing works through self-describing codes in the URL fragment (no backend)
 
 ## Run locally
 
